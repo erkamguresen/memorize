@@ -5,8 +5,12 @@ itemList.addEventListener("click", prepareData);
 
 function prepareData(e) {
   if (e.target.classList.contains("play")) {
-    let currentLi = e.target.parentElement;
-    console.log(currentLi);
+    let dataSetName = getDataSetName(e);
+
+    let rawData = document.getElementById(dataSetName).textContent;
+
+    // let currentLi = e.target.parentElement;
+    console.log(rawData);
 
     //     //there is formatting and extra X so use first child which is the only tex node :-)
     //     let text = currentLi.firstChild.textContent.trim();
@@ -17,4 +21,14 @@ function prepareData(e) {
     //       itemList.removeChild(currentLi);
     //     }
   }
+}
+
+function getDataSetName(event) {
+  let currentElement = event.target.parentElement;
+
+  while (currentElement.tagName.toLowerCase() !== "li") {
+    currentElement = currentElement.parentElement;
+  }
+
+  return currentElement.firstChild.textContent;
 }
