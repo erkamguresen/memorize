@@ -54,6 +54,7 @@ function uploadFile(file) {
     console.log(textFromFile);
     let paragraph = document.getElementById("textFromFiles");
 
+    console.log(file.name);
     paragraph.textContent = textFromFile;
   };
 
