@@ -56,7 +56,7 @@ function uploadFile(file) {
 
     let dataSetList = document.getElementById("file-list");
 
-    let newDataSetElement = getNewDataSetElement(dataSetName);
+    let newDataSetElement = getNewDataSetElement(dataSetName, textFromFile);
 
     dataSetList.appendChild(newDataSetElement);
 
@@ -94,18 +94,25 @@ function getFileName(file) {
   return file.name;
 }
 
-function getNewDataSetElement(dataSetName) {
+function getNewDataSetElement(dataSetName, data) {
   let newDataSet = document.createElement("li");
 
   newDataSet.appendChild(document.createTextNode(dataSetName));
   newDataSet.className = "list-group-item";
 
+  let dataText = document.createElement("data");
+  dataText.style.display = "none";
+  dataText.setAttribute("id", dataSetName);
+  dataText.textContent = data;
+
+  newDataSet.appendChild(dataText);
+
   let playButton = document.createElement("button");
 
-  playButton.className = "btn btn-success btn-sm float-right";
+  playButton.className = "btn btn-success btn-sm float-right play";
 
   let icon = document.createElement("i");
-  icon.className = "fa fa-play";
+  icon.className = "fa fa-play play";
 
   playButton.appendChild(icon);
 
