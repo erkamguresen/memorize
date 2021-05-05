@@ -56,6 +56,22 @@ function getDataObject(dataSetName) {
     let rawData = sessionStorage.getItem(dataSetName);
     let lines = getLineTokens(rawData);
 
+    let headers = lines[0];
+
+    for (let i = 1; i < lines.length; i++) {
+      if (lines[0].length !== lines[i].length)
+        throw new Error(
+          "RangeError",
+          `${i}th rows of data table does not have same length with header row`
+        );
+
+      for (let j = 0; j < lines[0].length; j++) {
+        const element = lines[i][j];
+
+        //TODO: write the object and add to the array?
+      }
+    }
+
     console.log(lines);
   } catch (e) {
     console.error(e);
