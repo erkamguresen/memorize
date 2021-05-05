@@ -51,22 +51,13 @@ function uploadFile(file) {
   reader.onload = function () {
     textFromFile = reader.result;
 
-    // console.log(typeof reader.result, reader.result);
-    // console.log(textFromFile);
-
     let dataSetList = document.getElementById("file-list");
 
     let newDataSetElement = getNewDataSetElement(dataSetName, textFromFile);
 
     dataSetList.appendChild(newDataSetElement);
 
-    // console.log(file.name);
-    // console.log(file.type);
-    // console.log(file.size);
-    console.log(dataSetName);
-
-    let paragraph = document.getElementById("textFromFiles");
-    paragraph.textContent = textFromFile;
+    sessionStorage.setItem(dataSetName, textFromFile);
   };
 
   reader.onerror = function () {
@@ -100,13 +91,6 @@ function getNewDataSetElement(dataSetName, data) {
   newDataSet.appendChild(document.createTextNode(dataSetName));
   newDataSet.className = "list-group-item";
 
-  let dataText = document.createElement("data");
-  dataText.style.display = "none";
-  dataText.setAttribute("id", dataSetName);
-  dataText.textContent = data;
-
-  newDataSet.appendChild(dataText);
-
   let playButton = document.createElement("button");
 
   playButton.className = "btn btn-success btn-sm float-right play";
@@ -118,7 +102,5 @@ function getNewDataSetElement(dataSetName, data) {
 
   newDataSet.appendChild(playButton);
 
-  // <i class="fas fa-play"></i>
-  // playButton.textContent = "X";
   return newDataSet;
 }

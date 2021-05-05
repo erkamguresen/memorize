@@ -7,10 +7,11 @@ function prepareData(e) {
   if (e.target.classList.contains("play")) {
     let dataSetName = getDataSetName(e);
 
-    let rawData = document.getElementById(dataSetName).textContent;
+    //TODO :make objects
 
-    // let currentLi = e.target.parentElement;
-    console.log(rawData);
+    //TODO: Save data object to local storage
+
+    console.log(sessionStorage.getItem(dataSetName));
 
     //     //there is formatting and extra X so use first child which is the only tex node :-)
     //     let text = currentLi.firstChild.textContent.trim();
