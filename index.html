@@ -9,24 +9,29 @@
   </head>
   <body>
     <head></head>
-    <aside>
-      <div id="drop-area">
-        <form class="my-form">
-          <p>
-            Upload multiple files with the file dialog or by dragging and
-            dropping images onto the dashed region
-          </p>
-          <input
-            type="file"
-            id="fileElem"
-            multiple
-            onchange="handleFiles(this.files)"
-          />
-          <label class="button" for="fileElem">Select some files</label>
-        </form>
-        <div id="gallery"></div>
-      </div>
-    </aside>
-    <main></main>
+    <div class="main-container">
+      <aside>
+        <div id="drop-area">
+          <form class="my-form">
+            <p id="drag-text">
+              Upload multiple files with the file dialog or by dragging and
+              dropping images onto the dashed region
+            </p>
+            <input
+              type="file"
+              id="fileElem"
+              multiple
+              onchange="handleFiles(this.files)"
+            />
+            <label class="button" for="fileElem">Select some files</label>
+          </form>
+          <div id="gallery"></div>
+        </div>
+      </aside>
+      <main>
+        <div id="progress">progress</div>
+        <div id="display">display</div>
+      </main>
+    </div>
   </body>
 </html>

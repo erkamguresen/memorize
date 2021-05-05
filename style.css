@@ -1,7 +1,15 @@
 body {
   font-family: sans-serif;
 }
-a {
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+/* Left Menu */
+
+aside a {
   color: #369;
 }
 .note {
@@ -14,14 +22,14 @@ a {
 #drop-area {
   border: 2px dashed #ccc;
   border-radius: 20px;
-  width: 480px;
-  margin: 50px auto;
-  padding: 20px;
+  width: 240px;
+  margin: 20px auto;
+  padding: 10px;
 }
 #drop-area.highlight {
   border-color: purple;
 }
-p {
+#drag-text {
   margin-top: 0;
 }
 .my-form {
@@ -49,4 +57,11 @@ p {
 }
 #fileElem {
   display: none;
+}
+
+/* Main part */
+
+main {
+  border-left: 2px solid #ccc;
+  height: 98vh;
 }
