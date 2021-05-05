@@ -60,13 +60,15 @@ aside a {
   display: none;
 }
 
+/* File | Data Set List */
+
 .list-group-item {
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
   margin: 0%;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* border: 1px solid rgba(0, 0, 0, 0.125); */
   /* border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem; */
   border-radius: 0.25rem;
@@ -75,7 +77,42 @@ aside a {
 ul {
   margin: 0;
   padding: 0;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+.float-right {
+  float: right !important;
 }
 
 /* Main part */

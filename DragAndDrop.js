@@ -53,20 +53,19 @@ function uploadFile(file) {
 
     // console.log(typeof reader.result, reader.result);
     // console.log(textFromFile);
-    let paragraph = document.getElementById("textFromFiles");
 
     let dataSetList = document.getElementById("file-list");
 
-    let newDataSet = document.createElement("li");
-    newDataSet.appendChild(document.createTextNode(dataSetName));
-    newDataSet.className = "list-group-item";
+    let newDataSetElement = getNewDataSetElement(dataSetName);
 
-    dataSetList.appendChild(newDataSet);
+    dataSetList.appendChild(newDataSetElement);
 
     // console.log(file.name);
     // console.log(file.type);
     // console.log(file.size);
     console.log(dataSetName);
+
+    let paragraph = document.getElementById("textFromFiles");
     paragraph.textContent = textFromFile;
   };
 
@@ -93,4 +92,26 @@ function getFileName(file) {
   }
 
   return file.name;
+}
+
+function getNewDataSetElement(dataSetName) {
+  let newDataSet = document.createElement("li");
+
+  newDataSet.appendChild(document.createTextNode(dataSetName));
+  newDataSet.className = "list-group-item";
+
+  let playButton = document.createElement("button");
+
+  playButton.className = "btn btn-success btn-sm float-right";
+
+  let icon = document.createElement("i");
+  icon.className = "fa fa-play";
+
+  playButton.appendChild(icon);
+
+  newDataSet.appendChild(playButton);
+
+  // <i class="fas fa-play"></i>
+  // playButton.textContent = "X";
+  return newDataSet;
 }
