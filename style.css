@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }
 
 .main-container {
@@ -24,7 +25,7 @@ aside a {
   border-radius: 20px;
   width: 240px;
   margin: 20px auto;
-  padding: 10px;
+  padding: 1rem;
 }
 #drop-area.highlight {
   border-color: purple;
@@ -57,6 +58,24 @@ aside a {
 }
 #fileElem {
   display: none;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin: 0%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem; */
+  border-radius: 0.25rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  border: 1px solid red;
 }
 
 /* Main part */
