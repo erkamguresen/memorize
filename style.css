@@ -64,4 +64,6 @@ aside a {
 main {
   border-left: 2px solid #ccc;
   height: 98vh;
+  margin-left: 10px;
+  padding: 10px;
 }
