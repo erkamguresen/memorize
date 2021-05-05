@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Memorize</title>
+  </head>
+  <body>
+    <head></head>
+    <aside>
+      <div id="drop-area">
+        <form class="my-form">
+          <p>
+            Upload multiple files with the file dialog or by dragging and
+            dropping images onto the dashed region
+          </p>
+          <input
+            type="file"
+            id="fileElem"
+            multiple
+            onchange="handleFiles(this.files)"
+          />
+          <label class="button" for="fileElem">Select some files</label>
+        </form>
+        <div id="gallery"></div>
+      </div>
+    </aside>
+    <main></main>
+  </body>
+</html>
