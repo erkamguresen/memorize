@@ -10,13 +10,14 @@ function prepareData(e) {
     // make objects
     let dataObjects = getDataObject(dataSetName);
 
-    // let dataJSON = JSON.stringify(dataObject);
+    let dataJSON = JSON.stringify(dataObjects);
 
     // Save data object to local storage
     localStorage.setItem(`${dataSetName}Data`, dataObjects);
     // localStorage.setItem(`${dataSetName}Data`, dataJSON);
 
     console.log(localStorage.getItem(`${dataSetName}Data`));
+    console.log(dataJSON);
 
     //TODO: Main panel content
 
@@ -82,7 +83,7 @@ function getDataObject(dataSetName) {
       returnArray.push(newObject);
     }
 
-    console.log(lines);
+    // console.log(lines);
   } catch (e) {
     console.error(e);
   }
@@ -97,21 +98,24 @@ function getLineTokens(textToTokenize) {
   for (let i = 0; i < textToTokenize.length; i++) {
     let char = textToTokenize[i];
 
+    // console.log(char !== "\n" && char !== "\r");
+
     if (i === textToTokenize.length - 1) {
-      console.log(char !== "\n" && char !== "\r");
       if (char !== "\n" && char !== "\r") {
         line += char;
       }
-      returnArray.push(line);
+
+      if (line !== "") returnArray.push(line);
+
       break;
     }
-    console.log(char !== "\n" && char !== "\r");
+
     if (char !== "\n" && char !== "\r") {
       line += char;
       continue;
     } else {
       // char === "\n" || char === "\r"
-      returnArray.push(line);
+      if (line !== "") returnArray.push(line);
 
       //reset line variable
       line = "";
