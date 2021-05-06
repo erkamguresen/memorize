@@ -83,14 +83,14 @@ function loadFlashCards(dataSet) {
       card.appendChild(question);
 
       const answer = document.createElement("answer");
-      // answer.style.display = "block";
-      // answer.style.display = "none";
+      answer.style.display = "block";
       answer.style.visibility = "hidden";
       answer.textContent = element.value;
       card.appendChild(answer);
 
       studyDiv.appendChild(card);
-      console.log(element);
+      // console.log(element);
+      card.addEventListener("click", showAnswer(index));
     }
   }
 
@@ -109,4 +109,13 @@ function loadFlashCards(dataSet) {
   studyDiv.appendChild(nextButton);
 
   //TODO: add event listeners
+  // previousButton;
+  // nextButton;
+}
+
+function showAnswer(event) {
+  // event.preventDefault();
+  console.log("object");
+  // let answer = document.querySelector(`div[index= '${cardIndex}'] answer`);
+  // console.log(answer);
 }
