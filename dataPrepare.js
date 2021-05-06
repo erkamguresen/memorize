@@ -45,9 +45,9 @@ function prepareData(e) {
 function prepareMainPanel(title) {
   const dataSetName = `${title} Data`;
   let mainPanel = document.querySelector("main");
-  console.log(mainPanel);
+  // console.log(mainPanel);
 
-  //TODO: H1 data set name and span for data set name
+  //H1 data set name and span for data set name
 
   const h1Element = document.createElement("h1");
   h1Element.innerHTML = `"<span>${title}</span>" is ready!`;
@@ -60,11 +60,20 @@ function prepareMainPanel(title) {
   buttonsDiv.className = "buttons-div";
   mainPanel.appendChild(buttonsDiv);
 
-  //TODO: Button for study button
+  // Button for study button
   let studyButton = document.createElement("button");
-  button.className = "asd";
+  studyButton.className = "btn info";
+  studyButton.textContent = "Study";
+  studyButton.setAttribute("onclick", "study()");
+  buttonsDiv.appendChild(studyButton);
 
-  //TODO: Button for quiz
+  // Button for quiz
+  let quizButton = document.createElement("button");
+  quizButton.className = "btn success";
+  quizButton.textContent = `Let's Memorize`;
+  quizButton.setAttribute("onclick", "quiz()");
+  buttonsDiv.appendChild(quizButton);
+
   //TODO: Button for saving current progress
   // let dataJSON = JSON.stringify(dataObjects);
   // localStorage.setItem(`${dataSetName}Data`, dataJSON);
