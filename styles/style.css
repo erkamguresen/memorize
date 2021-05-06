@@ -199,6 +199,7 @@ question {
   padding: 10px;
   border-bottom: 1px solid #ccc;
   text-align: center;
+  font-weight: bolder;
 }
 
 answer {
@@ -206,6 +207,8 @@ answer {
   padding: 10px;
   /* border-bottom: 1px solid #ccc; */
   text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 /* Buttons */

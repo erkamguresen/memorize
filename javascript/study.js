@@ -109,8 +109,8 @@ function loadFlashCards(dataSet) {
   studyDiv.appendChild(nextButton);
 
   //TODO: add event listeners
-  // previousButton;
-  // nextButton;
+  previousButton.addEventListener("click", previousFlashCard, false);
+  nextButton.addEventListener("click", nextFlashCard, false);
 }
 
 function showAnswer(event) {
@@ -125,4 +125,16 @@ function showAnswer(event) {
   let answerElement = currentElement.lastChild;
 
   answerElement.style.visibility = "visible";
+}
+
+function previousFlashCard(event) {
+  event.preventDefault();
+  //TODO: previous flash card
+  console.log("pre");
+}
+
+function nextFlashCard(event) {
+  event.preventDefault();
+  //TODO next flash card
+  console.log("next");
 }
