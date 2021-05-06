@@ -73,20 +73,6 @@ function prepareMainPanel(title) {
   quizButton.textContent = `Let's Memorize`;
   quizButton.setAttribute("onclick", "quiz()");
   buttonsDiv.appendChild(quizButton);
-
-  //TODO: Button for saving current progress
-
-  // let dataJSON = JSON.stringify(dataObjects);
-  // localStorage.setItem(`${dataSetName}Data`, dataJSON);
-  // console.log(localStorage.getItem(`${dataSetName}Data`));
-  // console.log(dataJSON);
-  // console.log(sessionStorage.getItem(dataSetName));
-  //     //there is formatting and extra X so use first child which is the only tex node :-)
-  //     let text = currentLi.firstChild.textContent.trim();
-  //     let isConfirmed = confirm(`Are you sure you want to delete:    ${text} ?`);
-  //     if (isConfirmed) {
-  //       itemList.removeChild(currentLi);
-  //     }
 }
 
 function getDataSetName(event) {

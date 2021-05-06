@@ -1,1 +1,3 @@
-function study() {}
+function study() {
+  console.log("study");
+}

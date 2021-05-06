@@ -22,18 +22,24 @@
     <!-- Header -->
     <head>
       <div id="header">
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Memorize</a></li>
-            <li><a href="docs.html">Documentation</a></li>
-          </ul>
-        </nav>
+        <!-- Nav Bar -->
+        <div class="container flex navbar">
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Memorize</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+            </ul>
+          </nav>
+          <div id="progress">
+            <button class="btn warning" id="progress-button">Download Current Progress</button>
+          </div>
+        </div>
       </div>
     </head>
 
     <!-- Middle Content -->
-    <div class="main-container">
+    <div class="main-container" id="main-container">
       <!-- Left Side -->
       <aside>
         <!-- File Upload Part -->
@@ -69,8 +75,11 @@
 
       <!-- Main Page -->
       <main>
-        <div id="progress">progress</div>
-        <div id="display">display</div>
+        
+        <div id="display">
+          <h1>Welcome to Let's Memorize</h1>
+          <h3>Select a file to study or memorize</h3>
+          
         <button class="btn success">Success</button>
         <button class="btn info">Info</button>
         <button class="btn warning">Warning</button>
