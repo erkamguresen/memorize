@@ -194,6 +194,20 @@ main h1 {
   align-items: center;
 }
 
+question {
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+answer {
+  margin: 10px;
+  padding: 10px;
+  /* border-bottom: 1px solid #ccc; */
+  text-align: center;
+}
+
 /* Buttons */
 .btn {
   border: 2px solid black;
