@@ -75,6 +75,7 @@ function prepareMainPanel(title) {
   buttonsDiv.appendChild(quizButton);
 
   //TODO: Button for saving current progress
+
   // let dataJSON = JSON.stringify(dataObjects);
   // localStorage.setItem(`${dataSetName}Data`, dataJSON);
   // console.log(localStorage.getItem(`${dataSetName}Data`));
@@ -107,6 +108,9 @@ function getDataObject(dataSetName) {
 
     let headers = getWordTokens(lines[0]);
 
+    if (rawData.length <= 1) {
+      throw new ValidationError("Whoops! Data file has problems...");
+    }
     //each row will contain related objects
     for (let i = 1; i < lines.length; i++) {
       let row = getWordTokens(lines[i]);
@@ -140,6 +144,7 @@ function getDataObject(dataSetName) {
 
     // console.log(lines);
   } catch (e) {
+    console.error(e.message);
     console.error(e);
   }
 
