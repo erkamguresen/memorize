@@ -91,13 +91,19 @@ function loadFlashCards(dataSet) {
       studyDiv.appendChild(card);
 
       card.addEventListener("click", showAnswer);
+
+      //increment index
+      index++;
     }
   }
 
   // display index 0 card
-  let startCard = document.querySelector(`div[index= '0']`);
+  // let startCard = document.querySelector(`div[index= '0']`);
+  //TODO: reverse
+  let startCard = document.querySelector(`div[index= '3']`);
   console.log(startCard);
   startCard.style.display = "block";
+  startCard.id = "visible-card";
 
   //add next button
   const nextButton = document.createElement("button");
@@ -130,6 +136,33 @@ function showAnswer(event) {
 function previousFlashCard(event) {
   event.preventDefault();
   //TODO: previous flash card
+
+  //TODO: Bug does not show 0 and continues backwards
+  const currentElement = document.querySelector("#visible-card");
+
+  console.log(currentElement);
+
+  //get current flash card index
+  const currentIndex = currentElement.getAttribute("index");
+
+  console.log(currentIndex);
+  //check if the index is 0
+  if (currentIndex !== 0) {
+    //get previous flash card
+    let previousElement = currentElement.previousSibling;
+    previousElement.style.display = "block";
+    console.log(previousElement);
+    previousElement.id = "visible-card";
+
+    //set current flash card
+    currentElement.style.display = "none";
+    //display : none & answer visibility: hidden
+    currentElement.lastChild.style.visibility = "hidden";
+    console.log(currentElement.lastChild);
+    //remove add id of visible-card
+    currentElement.id = "";
+  }
+
   console.log("pre");
 }
 
