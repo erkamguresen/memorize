@@ -35,34 +35,48 @@ function prepareData(e) {
     // make objects
     let dataObjects = getDataObject(dataSetName);
 
-    let dataJSON = JSON.stringify(dataObjects);
-
     // Save data object to local storage
-    localStorage.setItem(`${dataSetName}Data`, dataObjects);
-    // localStorage.setItem(`${dataSetName}Data`, dataJSON);
+    localStorage.setItem(`${dataSetName} Data`, dataObjects);
 
-    console.log(localStorage.getItem(`${dataSetName}Data`));
-    console.log(dataJSON);
-
-    //TODO: Main panel content
-
-    //TODO: H1 data set name
-
-    //TODO: Button for study button
-
-    //TODO: Button for quiz
-
-    // console.log(sessionStorage.getItem(dataSetName));
-
-    //     //there is formatting and extra X so use first child which is the only tex node :-)
-    //     let text = currentLi.firstChild.textContent.trim();
-
-    //     let isConfirmed = confirm(`Are you sure you want to delete:    ${text} ?`);
-
-    //     if (isConfirmed) {
-    //       itemList.removeChild(currentLi);
-    //     }
+    prepareMainPanel(dataSetName);
   }
+}
+
+function prepareMainPanel(title) {
+  const dataSetName = `${title} Data`;
+  let mainPanel = document.querySelector("main");
+  console.log(mainPanel);
+
+  //TODO: H1 data set name and span for data set name
+
+  const h1Element = document.createElement("h1");
+  h1Element.innerHTML = `"<span>${title}</span>" is ready!`;
+  //clear mainPanel if there is stg
+  mainPanel.innerHTML = "";
+  mainPanel.appendChild(h1Element);
+
+  //Buttons Div
+  const buttonsDiv = document.createElement("div");
+  buttonsDiv.className = "buttons-div";
+  mainPanel.appendChild(buttonsDiv);
+
+  //TODO: Button for study button
+  let studyButton = document.createElement("button");
+  button.className = "asd";
+
+  //TODO: Button for quiz
+  //TODO: Button for saving current progress
+  // let dataJSON = JSON.stringify(dataObjects);
+  // localStorage.setItem(`${dataSetName}Data`, dataJSON);
+  // console.log(localStorage.getItem(`${dataSetName}Data`));
+  // console.log(dataJSON);
+  // console.log(sessionStorage.getItem(dataSetName));
+  //     //there is formatting and extra X so use first child which is the only tex node :-)
+  //     let text = currentLi.firstChild.textContent.trim();
+  //     let isConfirmed = confirm(`Are you sure you want to delete:    ${text} ?`);
+  //     if (isConfirmed) {
+  //       itemList.removeChild(currentLi);
+  //     }
 }
 
 function getDataSetName(event) {
@@ -84,8 +98,10 @@ function getDataObject(dataSetName) {
 
     let headers = getWordTokens(lines[0]);
 
+    //each row will contain related objects
     for (let i = 1; i < lines.length; i++) {
       let row = getWordTokens(lines[i]);
+      let dataRaw = [];
 
       if (headers.length !== row.length)
         throw new Error(
@@ -94,18 +110,23 @@ function getDataObject(dataSetName) {
         );
 
       //Correct answer level will be stored in the progress variable
-      let newObject = {
-        progress: 0,
-      };
 
-      for (let j = 0; j < lines[0].length; j++) {
-        const element = row[j];
-        const header = headers[j];
+      for (let j = 0; j < headers.length; j++) {
+        let newObject = {
+          header: headers[j],
+          value: row[j],
+          progress: 0,
+        };
 
-        newObject[header] = element;
+        // const element = row[j];
+        // const header = headers[j];
+
+        // newObject[header] = element;
+
+        dataRaw.push(newObject);
       }
 
-      returnArray.push(newObject);
+      returnArray.push(dataRaw);
     }
 
     // console.log(lines);
