@@ -7,12 +7,12 @@ function prepareData(e) {
   if (e.target.classList.contains("play")) {
     let dataSetName = getDataSetName(e);
 
-    //TODO :make objects
+    // make objects
     let dataObjects = getDataObject(dataSetName);
 
     // let dataJSON = JSON.stringify(dataObject);
 
-    //TODO: Save data object to local storage
+    // Save data object to local storage
     localStorage.setItem(`${dataSetName}Data`, dataObjects);
     // localStorage.setItem(`${dataSetName}Data`, dataJSON);
 
@@ -62,14 +62,21 @@ function getDataObject(dataSetName) {
       if (lines[0].length !== lines[i].length)
         throw new Error(
           "RangeError",
-          `${i}th rows of data table does not have same length with header row`
+          `${i}th row of data table does not have same length with header row`
         );
+
+      //Correct answer level will be stored in the progress variable
+      let newObject = {
+        progress: 0,
+      };
 
       for (let j = 0; j < lines[0].length; j++) {
         const element = lines[i][j];
 
-        //TODO: write the object and add to the array?
+        newObject.lines[0][j] = element;
       }
+
+      returnArray.push(newObject);
     }
 
     console.log(lines);
