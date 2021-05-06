@@ -63,8 +63,6 @@ function uploadFile(file) {
   reader.onerror = function () {
     console.log(reader.error);
   };
-
-  console.log("hi 2");
 }
 
 function getFileName(file) {

@@ -56,10 +56,12 @@ function getDataObject(dataSetName) {
     let rawData = sessionStorage.getItem(dataSetName);
     let lines = getLineTokens(rawData);
 
-    let headers = lines[0];
+    let headers = getWordTokens(lines[0]);
 
     for (let i = 1; i < lines.length; i++) {
-      if (lines[0].length !== lines[i].length)
+      let row = getWordTokens(lines[i]);
+
+      if (headers.length !== row.length)
         throw new Error(
           "RangeError",
           `${i}th row of data table does not have same length with header row`
@@ -71,9 +73,10 @@ function getDataObject(dataSetName) {
       };
 
       for (let j = 0; j < lines[0].length; j++) {
-        const element = lines[i][j];
+        const element = row[j];
+        const header = headers[j];
 
-        newObject.lines[0][j] = element;
+        newObject[header] = element;
       }
 
       returnArray.push(newObject);
@@ -95,18 +98,22 @@ function getLineTokens(textToTokenize) {
     let char = textToTokenize[i];
 
     if (i === textToTokenize.length - 1) {
-      line += char;
+      console.log(char !== "\n" && char !== "\r");
+      if (char !== "\n" && char !== "\r") {
+        line += char;
+      }
       returnArray.push(line);
       break;
     }
-
-    if (char !== "\n") {
+    console.log(char !== "\n" && char !== "\r");
+    if (char !== "\n" && char !== "\r") {
       line += char;
       continue;
     } else {
-      // char === "\n"
+      // char === "\n" || char === "\r"
       returnArray.push(line);
 
+      //reset line variable
       line = "";
     }
   }
@@ -118,11 +125,19 @@ function getWordTokens(textLineToTokenize) {
   let returnArray = [];
   let word = "";
 
+  //remove white spaces in the line
+  textLineToTokenize = textLineToTokenize.trim();
+
   for (let i = 0; i < textLineToTokenize.length; i++) {
     let char = textLineToTokenize[i];
 
     if (i === textLineToTokenize.length - 1) {
-      if (char !== " " && char !== "" && char !== "\n") word += char;
+      if (
+        // char !== " " &&
+        char !== "" &&
+        char !== "\n"
+      )
+        word += char;
 
       returnArray.push(word);
 
@@ -132,7 +147,7 @@ function getWordTokens(textLineToTokenize) {
     if (
       char !== "\n" &&
       char !== "\t" &&
-      char !== " " &&
+      // char !== " " &&
       char !== "\r" &&
       char !== "\f"
     ) {
@@ -140,7 +155,12 @@ function getWordTokens(textLineToTokenize) {
 
       continue;
     } else {
-      if (word !== " " && word !== "" && word !== "\n") returnArray.push(word);
+      if (
+        // word !== " " &&
+        word !== "" &&
+        word !== "\n"
+      )
+        returnArray.push(word);
 
       word = "";
       continue;
