@@ -9,18 +9,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-      crossorigin="anonymous"
-    /> -->
     <link rel="stylesheet" href="styles/style.css" />
     <title>Memorize</title>
   </head>
   <body>
     <!-- Header -->
-    <head>
+    <header>
       <div id="header">
         <!-- Nav Bar -->
         <div class="container flex navbar">
@@ -32,11 +26,13 @@
             </ul>
           </nav>
           <div id="progress">
-            <button class="btn warning" id="progress-button">Download Current Progress</button>
+            <button class="btn warning" id="progress-button">
+              Download Current Progress
+            </button>
           </div>
         </div>
       </div>
-    </head>
+    </header>
 
     <!-- Middle Content -->
     <div class="main-container" id="main-container">
@@ -55,8 +51,8 @@
               multiple
               onchange="handleFiles(this.files)"
             />
-            <label class="btn default" for="fileElem"
-              >Select files to memorize</label
+            <label class="btn default" for="fileElem">
+              Select files to memorize</label
             >
           </form>
           <div id="gallery"></div>
@@ -75,16 +71,25 @@
 
       <!-- Main Page -->
       <main>
-        
         <div id="display">
           <h1>Welcome to Let's Memorize</h1>
           <h3>Select a file to study or memorize</h3>
-          
-        <button class="btn success">Success</button>
-        <button class="btn info">Info</button>
-        <button class="btn warning">Warning</button>
-        <button class="btn danger">Danger</button>
-        <button class="btn default">Default</button>
+
+          <button class="btn success">Success</button>
+          <button class="btn info">Info</button>
+          <button class="btn warning">Warning</button>
+          <button class="btn danger">Danger</button>
+          <button class="btn default">Default</button>
+
+          <div id="study">
+            <i class="fa fa-chevron-left"></i>
+            <div class="card">
+              <h4>PHP</h4>
+              <img src="images/logos/php.png" alt="" />
+            </div>
+            <i class="fa fa-chevron-right"></i>
+          </div>
+        </div>
       </main>
     </div>
 

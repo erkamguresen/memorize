@@ -92,7 +92,6 @@ function getNewDataSetElement(dataSetName, data) {
   let playButton = document.createElement("button");
 
   playButton.className = "btn success btn-sm float-right play";
-  // playButton.className = "btn btn-success btn-sm float-right play";
 
   let icon = document.createElement("i");
   icon.className = "fa fa-play play";

@@ -33,7 +33,7 @@ a {
 .flex {
   display: flex;
   justify-content: space-between;
-  /* justify-content: flex-start; */
+  /* justify-content: center; */
   align-items: center;
   height: 100%;
 }
@@ -80,7 +80,8 @@ a {
 }
 
 .navbar .flex {
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /* Left Menu */
@@ -180,6 +181,12 @@ main h1 {
   margin: 30px auto;
   display: flex;
   justify-content: space-around;
+}
+
+#study {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Buttons */
