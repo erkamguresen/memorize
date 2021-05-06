@@ -89,8 +89,8 @@ function loadFlashCards(dataSet) {
       card.appendChild(answer);
 
       studyDiv.appendChild(card);
-      // console.log(element);
-      card.addEventListener("click", showAnswer(index));
+
+      card.addEventListener("click", showAnswer);
     }
   }
 
@@ -114,8 +114,15 @@ function loadFlashCards(dataSet) {
 }
 
 function showAnswer(event) {
-  // event.preventDefault();
-  console.log("object");
-  // let answer = document.querySelector(`div[index= '${cardIndex}'] answer`);
-  // console.log(answer);
+  event.preventDefault();
+
+  let currentElement = event.target;
+
+  while (currentElement.tagName.toLowerCase() !== "div") {
+    currentElement = currentElement.parentElement;
+  }
+
+  let answerElement = currentElement.lastChild;
+
+  answerElement.style.visibility = "visible";
 }
