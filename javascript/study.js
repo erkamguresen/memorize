@@ -54,9 +54,6 @@ function loadFlashCards(dataSet) {
   const studyDiv = document.getElementById("study");
 
   //add previous button
-  // <button id="previous" class="icon-btn">
-  //   <i class="fa fa-chevron-left fa-3x"></i>
-  // </button>
   const previousButton = document.createElement("button");
   previousButton.setAttribute("id", "previous");
   previousButton.className = "icon-btn";
@@ -65,20 +62,24 @@ function loadFlashCards(dataSet) {
   previousButton.appendChild(leftIcon);
   studyDiv.appendChild(previousButton);
 
-  // TODO: add flash cards
+  // add flash cards
+  let index = 0;
   for (let i = 0; i < dataSet.length; i++) {
-const
+    const questionPreFix = "What is the answer ?";
+    const questionPostFix = `(${dataSet[i][0].value})`;
 
     for (let j = 1; j < dataSet[i].length; j++) {
       const element = dataSet[i][j];
 
       const card = document.createElement("div");
       card.className = "card";
-      // card.style.display = "none";
+      card.style.display = "none";
+      card.setAttribute("index", index);
 
       const question = document.createElement("question");
       question.style.display = "block";
-      question.textContent = element.header;
+      question.innerHTML = `<p>${questionPreFix}</p>
+      <p>${element.header} ${questionPostFix}</p>`;
       card.appendChild(question);
 
       const answer = document.createElement("answer");
@@ -92,17 +93,13 @@ const
       console.log(element);
     }
   }
-  // <div class="card">
-  //   <question style="display: block">Question</question>
-  //   <answer style="display: block">Answer</answer>
-  // </div>;
 
-  //TODO: display index 0 card
+  // display index 0 card
+  let startCard = document.querySelector(`div[index= '0']`);
+  console.log(startCard);
+  startCard.style.display = "block";
 
   //add next button
-  // <button id="next" class="icon-btn">
-  //    <i class="fa fa-chevron-right fa-3x"></i>
-  // </button>
   const nextButton = document.createElement("button");
   nextButton.setAttribute("id", "next");
   nextButton.className = "icon-btn";
