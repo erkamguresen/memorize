@@ -36,7 +36,8 @@ function prepareData(e) {
     let dataObjects = getDataObject(dataSetName);
 
     // Save data object to local storage
-    localStorage.setItem(`${dataSetName} Data`, dataObjects);
+    let dataJSON = JSON.stringify(dataObjects);
+    localStorage.setItem(`${dataSetName} Data`, dataJSON);
 
     prepareMainPanel(dataSetName);
   }
@@ -50,7 +51,7 @@ function prepareMainPanel(title) {
   //H1 data set name and span for data set name
 
   const h1Element = document.createElement("h1");
-  h1Element.innerHTML = `"<span>${title}</span>" is ready!`;
+  h1Element.innerHTML = `"<span id='data-name'>${title}</span>" is ready!`;
   //clear mainPanel if there is stg
   mainPanel.innerHTML = "";
   mainPanel.appendChild(h1Element);
@@ -117,11 +118,6 @@ function getDataObject(dataSetName) {
           progress: 0,
         };
 
-        // const element = row[j];
-        // const header = headers[j];
-
-        // newObject[header] = element;
-
         dataRaw.push(newObject);
       }
 
@@ -143,8 +139,6 @@ function getLineTokens(textToTokenize) {
 
   for (let i = 0; i < textToTokenize.length; i++) {
     let char = textToTokenize[i];
-
-    // console.log(char !== "\n" && char !== "\r");
 
     if (i === textToTokenize.length - 1) {
       if (char !== "\n" && char !== "\r") {

@@ -1,11 +1,20 @@
 function quiz() {
   //Button for saving current progress
   document.getElementById("progress-button").style.display = "block";
+  let dataSetName = document.querySelector("#data-name").textContent;
+  dataSetName = `${dataSetName} Data`;
 
-  // let dataJSON = JSON.stringify(dataObjects);
+  let dataSet = JSON.parse(localStorage.getItem(dataSetName));
+
+  //   console.log(dataSetName);
+  //   console.log(typeof dataSet);
+  //   console.log(dataSet[0]);
+  //   console.log(dataSet);
+
+  //   let dataJSON = JSON.stringify(dataSet);
   // localStorage.setItem(`${dataSetName}Data`, dataJSON);
   // console.log(localStorage.getItem(`${dataSetName}Data`));
-  // console.log(dataJSON);
+  //   console.log(dataJSON);
   // console.log(sessionStorage.getItem(dataSetName));
   //     //there is formatting and extra X so use first child which is the only tex node :-)
   //     let text = currentLi.firstChild.textContent.trim();
