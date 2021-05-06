@@ -12,6 +12,9 @@ function study() {
 
   //hide aside
   hideAside();
+
+  //load flash cards to study
+  loadFlashCards(dataSet);
 }
 
 function hideAside() {

@@ -260,3 +260,18 @@ main h1 {
   line-height: 1.5;
   border-radius: 0.2rem;
 }
+
+.icon-btn {
+  /* border: 2px solid black; */
+  border: none;
+  background-color: white;
+  color: var(--primary-color);
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.icon-btn :hover,
+.icon-btn :focus {
+  font-size: 5rem;
+}
