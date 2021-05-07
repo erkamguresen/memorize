@@ -85,27 +85,33 @@ function loadFlashCards(dataSet) {
     const questionPostFix = `(${dataSet[i][0].value})`;
 
     for (let j = 1; j < dataSet[i].length; j++) {
+      //for each element in the matrix
       const element = dataSet[i][j];
 
+      //generate a flash card
       const card = document.createElement("div");
       card.className = "card";
       card.style.display = "none";
       card.setAttribute("index", index);
 
+      //question part of the flash card
       const question = document.createElement("question");
       question.style.display = "block";
       question.innerHTML = `<p>${questionPreFix}</p>
       <p>${element.header} ${questionPostFix}</p>`;
       card.appendChild(question);
 
+      //answer part of the flash card
       const answer = document.createElement("answer");
       answer.style.display = "block";
       answer.style.visibility = "hidden";
       answer.textContent = element.value;
       card.appendChild(answer);
 
+      //add  flash card to display panel
       studyDiv.appendChild(card);
 
+      //add a click even to show the answer
       card.addEventListener("click", showAnswer);
 
       //increment index
@@ -113,10 +119,15 @@ function loadFlashCards(dataSet) {
     }
   }
 
-  // display index 0 card
+  /*
+   * all flash cards are hidden. each time only one of them will be shown.
+   * initialize the index 0 card as the default displayed card
+   */
+  //TODO: reverse to index 0 card
   // let startCard = document.querySelector(`div[index= '0']`);
-  //TODO: reverse
+
   let startCard = document.querySelector(`div[index= '3']`);
+
   console.log(startCard);
   startCard.style.display = "block";
   startCard.id = "visible-card";
@@ -130,11 +141,16 @@ function loadFlashCards(dataSet) {
   nextButton.appendChild(rightIcon);
   studyDiv.appendChild(nextButton);
 
-  //TODO: add event listeners
+  //add click event listeners to enable navigation between the flash cards
   previousButton.addEventListener("click", previousFlashCard, false);
   nextButton.addEventListener("click", nextFlashCard, false);
 }
 
+/**
+ * This function show the hidden answer part of the flash card
+ *
+ * @param {object} event  the click event
+ */
 function showAnswer(event) {
   event.preventDefault();
 
@@ -149,6 +165,11 @@ function showAnswer(event) {
   answerElement.style.visibility = "visible";
 }
 
+/**
+ * This function show the previous flash card if there is any
+ *
+ * @param {object} event the previous flash card click event
+ */
 function previousFlashCard(event) {
   event.preventDefault();
   //TODO: previous flash card
