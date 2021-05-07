@@ -1,16 +1,17 @@
+/**
+ * This function is the main function for study
+ * It starts study event and prepares the data and the page
+ */
 function study() {
+  //get the selected data name from page
   const setName = document.querySelector("#data-name").textContent;
+
+  //construct the data name to get it from localStorage
   const dataSetName = `${setName} Data`;
 
   let dataSet = JSON.parse(localStorage.getItem(dataSetName));
 
-  //   console.log(dataSetName);
-  //   console.log(typeof dataSet);
-  //   console.log(dataSet[0]);
-  // console.log(dataSet);
-  // console.log(`Study`);
-
-  //hide aside
+  //hide aside panel
   hideAside();
 
   //setup main panel
@@ -20,11 +21,21 @@ function study() {
   loadFlashCards(dataSet);
 }
 
+/**
+ * This function hides the aside panel
+ */
 function hideAside() {
   const aside = document.querySelector("aside");
   aside.style.display = "none";
 }
 
+/**
+ * This function get the name of the data set and prepares
+ * the main panel for studies.
+ *
+ * @param {string} titleToStudy  name of the data set which
+ * will be studied
+ */
 function setupMainPanel(titleToStudy) {
   const mainTag = document.querySelector("main");
 
@@ -50,6 +61,11 @@ function setupMainPanel(titleToStudy) {
   mainTag.appendChild(display);
 }
 
+/**
+ *
+ * @param {object} dataSet is the data set from which the flash
+ * cards are generated
+ */
 function loadFlashCards(dataSet) {
   const studyDiv = document.getElementById("study");
 
