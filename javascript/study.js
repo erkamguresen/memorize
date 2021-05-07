@@ -166,7 +166,7 @@ function showAnswer(event) {
 }
 
 /**
- * This function show the previous flash card if there is any
+ * This function shows the previous flash card if there is any
  *
  * @param {object} event the previous flash card click event
  */
@@ -203,6 +203,11 @@ function previousFlashCard(event) {
   console.log("pre");
 }
 
+/**
+ * This function shows the next flash card if there is any
+ *
+ * @param {object} event click event that is fired to request the next flash card
+ */
 function nextFlashCard(event) {
   event.preventDefault();
   //TODO next flash card
