@@ -128,8 +128,10 @@ function loadFlashCards(dataSet) {
 
   let startCard = document.querySelector(`div[index= '3']`);
 
+  console.log(studyDiv);
   console.log(startCard);
   startCard.style.display = "block";
+  //add an id to select this card easily in the future
   startCard.id = "visible-card";
 
   //add next button
@@ -172,35 +174,35 @@ function showAnswer(event) {
  */
 function previousFlashCard(event) {
   event.preventDefault();
-  //TODO: previous flash card
 
-  //TODO: Bug does not show 0 and continues backwards
+  //select the visible-card
   const currentElement = document.querySelector("#visible-card");
 
-  console.log(currentElement);
-
-  //get current flash card index
+  //get the index of the  current flash card
   const currentIndex = currentElement.getAttribute("index");
 
-  console.log(currentIndex);
-  //check if the index is 0
-  if (currentIndex !== 0) {
+  // check if there is a previous flash card
+  // note that all html elemnt attributes are strings
+  if (Number(currentIndex) !== 0) {
     //get previous flash card
     let previousElement = currentElement.previousSibling;
+
+    // make it visible
     previousElement.style.display = "block";
-    console.log(previousElement);
+
+    //add the id "visible-card" to select this card easily in the future
     previousElement.id = "visible-card";
 
-    //set current flash card
+    //hide the current flash card
     currentElement.style.display = "none";
-    //display : none & answer visibility: hidden
-    currentElement.lastChild.style.visibility = "hidden";
-    console.log(currentElement.lastChild);
     //remove add id of visible-card
     currentElement.id = "";
+    //hide the display of the answer: return to default 'visibility: hidden'
+    currentElement.lastChild.style.visibility = "hidden";
+    console.log(currentElement.lastChild);
   }
 
-  console.log("pre");
+  console.log("pre compleate");
 }
 
 /**
