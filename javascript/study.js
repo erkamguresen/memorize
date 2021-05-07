@@ -123,13 +123,8 @@ function loadFlashCards(dataSet) {
    * all flash cards are hidden. each time only one of them will be shown.
    * initialize the index 0 card as the default displayed card
    */
-  //TODO: reverse to index 0 card
-  // let startCard = document.querySelector(`div[index= '0']`);
+  let startCard = document.querySelector(`div[index= '0']`);
 
-  let startCard = document.querySelector(`div[index= '3']`);
-
-  console.log(studyDiv);
-  console.log(startCard);
   startCard.style.display = "block";
   //add an id to select this card easily in the future
   startCard.id = "visible-card";
@@ -182,7 +177,7 @@ function previousFlashCard(event) {
   const currentIndex = currentElement.getAttribute("index");
 
   // check if there is a previous flash card
-  // note that all html elemnt attributes are strings
+  // note that all html element attributes are strings
   if (Number(currentIndex) !== 0) {
     //get previous flash card
     let previousElement = currentElement.previousSibling;
@@ -199,10 +194,7 @@ function previousFlashCard(event) {
     currentElement.id = "";
     //hide the display of the answer: return to default 'visibility: hidden'
     currentElement.lastChild.style.visibility = "hidden";
-    console.log(currentElement.lastChild);
   }
-
-  console.log("pre compleate");
 }
 
 /**
@@ -212,6 +204,27 @@ function previousFlashCard(event) {
  */
 function nextFlashCard(event) {
   event.preventDefault();
-  //TODO next flash card
-  console.log("next");
+
+  //select the visible-card
+  const currentElement = document.querySelector("#visible-card");
+
+  //get the next sibling
+  const nextElement = currentElement.nextSibling;
+
+  // check if there is a next flash card
+  // note that all html element attributes are strings
+  if (nextElement.classList.contains("card")) {
+    // make next element visible
+    nextElement.style.display = "block";
+
+    //add the id "visible-card" to select this card easily in the future
+    nextElement.id = "visible-card";
+
+    //hide the current flash card
+    currentElement.style.display = "none";
+    //remove add id of visible-card
+    currentElement.id = "";
+    //hide the display of the answer: return to default 'visibility: hidden'
+    currentElement.lastChild.style.visibility = "hidden";
+  }
 }
