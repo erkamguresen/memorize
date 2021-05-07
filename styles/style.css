@@ -3,8 +3,8 @@
   --secondary-color: #1c3fa8;
   --dark-color: #002240;
   --light-color: #f4f4f4;
-  --success-color: #5cb85c;
-  --error-color: #d9534f;
+  --success-color: #04aa6d;
+  --error-color: #f44336;
 }
 
 body {
@@ -55,6 +55,34 @@ a {
   color: #333;
   border-radius: 10px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  margin: 10px;
+}
+
+.quiz-card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(30, 144, 255, 0.6);
+  padding: 20px;
+  margin: 10px;
+}
+
+.quiz-success {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(4, 170, 109, 0.8);
+  border: 3px solid rgba(4, 170, 109, 0.4);
+  padding: 20px;
+  margin: 10px;
+}
+
+.quiz-failure {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(244, 67, 54, 0.8);
   padding: 20px;
   margin: 10px;
 }

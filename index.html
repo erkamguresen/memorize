@@ -73,14 +73,10 @@
       <main>
         <div id="display">
           <h1>Welcome to Let's Memorize</h1>
-          <h3>Select a file to study or memorize</h3>
+          <h3>Select a file from the left menu to study or memorize.</h3>
 
-          <button class="btn success">Success</button>
-          <button class="btn info">Info</button>
-          <button class="btn warning">Warning</button>
-          <button class="btn danger">Danger</button>
-          <button class="btn default">Default</button>
-
+          <!-- Study Example -->
+          <div><h4>The study section looks like the following:</h4></div>
           <div id="study">
             <button id="previous" class="icon-btn">
               <i class="fa fa-chevron-left fa-3x"></i>
@@ -92,6 +88,42 @@
             <button id="next" class="icon-btn">
               <i class="fa fa-chevron-right fa-3x"></i>
             </button>
+          </div>
+
+          <!-- quiz example -->
+          <div><h4>The Memorize Section looks like the following:</h4></div>
+          <div id="study">
+            <div class="card quiz-card">
+              <question style="display: block">Question</question>
+              <answer style="font-weight: normal">Answer</answer>
+              <answer style="font-weight: normal">Answer</answer>
+              <answer style="font-weight: normal">Answer</answer>
+              <answer style="font-weight: normal">Answer</answer>
+            </div>
+            <div class="card quiz-success">
+              <question style="display: block"
+                >Correctly Answered Question</question
+              >
+              <answer style="font-weight: normal">Wrong Answer</answer>
+              <answer style="color: #04aa6d; font-weight: bold"
+                >Correct Answer</answer
+              >
+              <answer style="font-weight: normal">Wrong Answer</answer>
+              <answer style="font-weight: normal">wrong Answer</answer>
+            </div>
+            <div class="card quiz-failure">
+              <question style="display: block"
+                >Wrongly Answered Question</question
+              >
+              <answer style="font-weight: normal">Wrong Answer</answer>
+              <answer style="color: #04aa6d; font-weight: bold"
+                >Correct Answer</answer
+              >
+              <answer style="color: #f44336; font-weight: bold"
+                >Wrong Answer</answer
+              >
+              <answer style="font-weight: normal">wrong Answer</answer>
+            </div>
           </div>
         </div>
       </main>
