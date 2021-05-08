@@ -102,3 +102,7 @@ function getNewDataSetElement(dataSetName, data) {
 
   return newDataSet;
 }
+
+//TODO: limit files to txt and json
+
+//TODO: Read the Json file prepare accordingly

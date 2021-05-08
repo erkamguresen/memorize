@@ -69,22 +69,26 @@ a {
 }
 
 .quiz-success {
-  background-color: #fff;
+  background-color: rgba(4, 170, 109, 0.1);
   color: #333;
   border-radius: 10px;
   box-shadow: 5px 5px 20px rgba(4, 170, 109, 0.8);
-  border: 3px solid rgba(4, 170, 109, 0.4);
+  /* border: 3px solid rgba(4, 170, 109, 0.4); */
   padding: 20px;
   margin: 10px;
+  transition: background-color 0.5s ease;
 }
 
 .quiz-failure {
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: rgba(244, 67, 54, 0.1);
   color: #333;
+
   border-radius: 10px;
   box-shadow: 5px 5px 20px rgba(244, 67, 54, 0.8);
   padding: 20px;
   margin: 10px;
+  transition: background-color 0.5s ease;
 }
 
 /* Navbar Styles */
@@ -324,4 +328,47 @@ answer {
 .icon-btn :hover,
 .icon-btn :focus {
   font-size: 5rem;
+}
+
+@keyframes failure {
+  0% {
+    background: rgba(244, 67, 54, 1);
+  }
+  10% {
+    background: rgba(244, 67, 54, 0.9);
+  }
+  20% {
+    background: rgba(244, 67, 54, 0.8);
+  }
+  30% {
+    background: rgba(244, 67, 54, 0.7);
+  }
+  40% {
+    background: rgba(244, 67, 54, 0.6);
+  }
+  50% {
+    background: rgba(244, 67, 54, 0.5);
+  }
+  60% {
+    background: rgba(244, 67, 54, 0.4);
+  }
+  70% {
+    background: rgba(244, 67, 54, 0.3);
+  }
+  80% {
+    background: rgba(244, 67, 54, 0.2);
+  }
+  90% {
+    background: rgba(244, 67, 54, 0.1);
+  }
+
+  /* 25% {
+    background: rgba(244, 67, 54, 0.5);
+  }
+  50% {
+    background: rgba(244, 67, 54, 0.3);
+  } */
+  100% {
+    background: rgb(255, 255, 255);
+  }
 }
