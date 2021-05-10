@@ -1,37 +1,54 @@
+/**
+ * This function is the main function for Let's memorize part
+ * It starts memorize event and prepares the data and the page
+ */
 function quiz() {
-  //Button for saving current progress
-  document.getElementById("progress-button").style.display = "block";
-  let dataSetName = document.querySelector("#data-name").textContent;
-  dataSetName = `${dataSetName} Data`;
+  //get the selected data name from page
+  const setName = document.querySelector("#data-name").textContent;
+
+  //construct the data name to get it from localStorage
+  const dataSetName = `${setName} Data`;
 
   let dataSet = JSON.parse(localStorage.getItem(dataSetName));
 
-  //   console.log(dataSetName);
-  //   console.log(typeof dataSet);
-  //   console.log(dataSet[0]);
-  //   console.log(dataSet);
+  //hide aside panel
+  hideAside(); //will load from study
 
-  //   let dataJSON = JSON.stringify(dataSet);
-  // localStorage.setItem(`${dataSetName}Data`, dataJSON);
-  // console.log(localStorage.getItem(`${dataSetName}Data`));
-  //   console.log(dataJSON);
-  // console.log(sessionStorage.getItem(dataSetName));
-  //     //there is formatting and extra X so use first child which is the only tex node :-)
-  //     let text = currentLi.firstChild.textContent.trim();
-  //     let isConfirmed = confirm(`Are you sure you want to delete:    ${text} ?`);
-  //     if (isConfirmed) {
-  //       itemList.removeChild(currentLi);
-  //     }
+  //setup main panel
+  setupMainPanel(setName);
 
-  console.log(`Let's memorize`);
+  //load flash cards to study
+  loadQuestionCards(dataSet);
+}
 
-  const aside = document.querySelector("aside");
-  aside.style.display = "none";
-
+/**
+ * This function get the name of the data set and prepares
+ * the main panel for studies.
+ *
+ * @param {string} titleToStudy  name of the data set which
+ * will be studied
+ */
+function setupMainPanel(titleToStudy) {
   const mainTag = document.querySelector("main");
-  mainTag.innerHTML = "<h1>Let's memorize</h1>";
 
+  //remove the left border
   const mainDiv = document.querySelector("#main-container");
   mainDiv.className = "";
   mainTag.style.border = "none";
+
+  //empty main panel
+  mainTag.innerHTML = "";
+
+  const display = document.createElement("div");
+  display.setAttribute("id", "display");
+
+  const h1 = document.createElement("h1");
+  h1.textContent = `Let's Memorize the ${titleToStudy}`;
+  display.appendChild(h1);
+
+  const studyDiv = document.createElement("div");
+  studyDiv.setAttribute("id", "study");
+  display.appendChild(studyDiv);
+
+  mainTag.appendChild(display);
 }
