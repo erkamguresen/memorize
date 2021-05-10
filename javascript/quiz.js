@@ -46,9 +46,9 @@ function setupMainPanel(titleToStudy) {
   h1.textContent = `Let's Memorize the ${titleToStudy}`;
   display.appendChild(h1);
 
-  const studyDiv = document.createElement("div");
-  studyDiv.setAttribute("id", "study");
-  display.appendChild(studyDiv);
+  const memorizeDiv = document.createElement("div");
+  memorizeDiv.setAttribute("id", "memorize");
+  display.appendChild(memorizeDiv);
 
   mainTag.appendChild(display);
 }
