@@ -52,3 +52,15 @@ function setupMainPanel(titleToStudy) {
 
   mainTag.appendChild(display);
 }
+
+/**
+ *  This function prepares and displays the questions
+ *
+ * @param {object} dataSets data object. Received data will
+ * have the following properties:
+ *
+ * { 'header': valueOfHeader,
+ * 'value': valueOfTheElement,
+ * 'progress': valueOfTheProgress,}
+ */
+function loadQuestionCards(dataSets) {}

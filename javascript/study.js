@@ -62,9 +62,15 @@ function setupMainPanel(titleToStudy) {
 }
 
 /**
+ * This function prepares and displays the flash cards
  *
  * @param {object} dataSet is the data set from which the flash
- * cards are generated
+ * cards are generated. Received data will have the following properties:
+ *
+ *  { 'header': valueOfHeader,
+ * 'value': valueOfTheElement,
+ * 'progress': valueOfTheProgress,}
+ *
  */
 function loadFlashCards(dataSet) {
   const studyDiv = document.getElementById("study");
