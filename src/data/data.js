@@ -23,3 +23,7 @@
  * If answer is correct progress will be increased by 1,
  * if answer is wrong progress will be decreased by 1.
  */
+
+export const memorizeDataBase = {
+  DataSetList: [],
+};
