@@ -1,3 +1,6 @@
+import { prepareMemorizeListeners } from '../listeners/memorizeListener.js';
+import { prepareStudyListeners } from '../listeners/studyListener.js';
+
 export function prepareMainPanel(title) {
   const dataSetName = `${title} Data`;
   let mainPanel = document.querySelector('main');
@@ -20,13 +23,18 @@ export function prepareMainPanel(title) {
   let studyButton = document.createElement('button');
   studyButton.className = 'btn info';
   studyButton.textContent = 'Study';
-  studyButton.setAttribute('onclick', 'study()');
+  studyButton.id = 'study-button';
+  // studyButton.setAttribute('onclick', 'study()');
   buttonsDiv.appendChild(studyButton);
+
+  prepareStudyListeners(studyButton);
 
   // Button for quiz
   let quizButton = document.createElement('button');
   quizButton.className = 'btn success';
   quizButton.textContent = `Let's Memorize`;
-  quizButton.setAttribute('onclick', 'quiz()');
+  // quizButton.setAttribute('onclick', 'quiz()');
   buttonsDiv.appendChild(quizButton);
+
+  prepareMemorizeListeners(quizButton);
 }
