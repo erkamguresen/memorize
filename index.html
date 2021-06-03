@@ -45,12 +45,12 @@
               Upload multiple files with the file dialog or by dragging and
               dropping images onto the dashed region
             </p>
-            <input
-              type="file"
-              id="fileElem"
-              multiple
-              onchange="handleFiles(this.files)"
-            />
+
+            <!-- TODO: limit files to txt and json
+            https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept -->
+
+            <input type="file" id="fileElem" multiple />
+            <!-- TODO delete onchange="handleFiles(this.files)" -->
             <label class="btn default" for="fileElem">
               Select files to memorize</label
             >
@@ -133,7 +133,7 @@
     <footer></footer>
 
     <!-- Scripts -->
-    <script src="javascript/dragAndDrop.js"></script>
+    <!-- <script src="javascript/dragAndDrop.js"></script> -->
     <script src="javascript/dataPrepare.js"></script>
     <script src="javascript/study.js"></script>
     <script src="javascript/quiz.js"></script>

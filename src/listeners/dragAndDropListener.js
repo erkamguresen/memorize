@@ -3,6 +3,7 @@ import {
   highlight,
   unhighlight,
   handleDrop,
+  handleFiles,
 } from '../handlers/dragAndDropHandler.js';
 
 let dropArea = document.getElementById('drop-area');
@@ -20,3 +21,7 @@ let dropArea = document.getElementById('drop-area');
 });
 
 dropArea.addEventListener('drop', handleDrop);
+
+const fileElement = document.getElementById('fileElem');
+
+fileElement.addEventListener('change', handleFiles);

@@ -17,10 +17,13 @@ export function handleDrop(e) {
   let dt = e.dataTransfer;
   let files = dt.files;
 
-  handleFiles(files);
+  // handleFiles(files);
+  [...files].forEach(uploadFile);
 }
 
 //without previewFile
-function handleFiles(files) {
+export function handleFiles(event) {
+  const files = event.currentTarget.files;
   [...files].forEach(uploadFile);
+  console.log('drag&drop handler call the upload files');
 }

@@ -1,4 +1,5 @@
 export function getNewDataSetElement(dataSetName, data) {
+  console.log('getNewDataSetElement');
   let newDataSet = document.createElement('li');
 
   newDataSet.appendChild(document.createTextNode(dataSetName));
