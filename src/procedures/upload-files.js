@@ -1,5 +1,5 @@
-import { getFileName } from '../procedures/file-IO.js';
-import { getNewDataSetElement } from '../procedures/update-data-list.js';
+import { getFileName } from './IO-file.js';
+import { getNewDataSetElement } from './update-data-list.js';
 
 export function uploadFile(file) {
   let textFromFile = '';

@@ -1,4 +1,4 @@
-import { uploadFile } from '../procedures/fileUpload.js';
+import { uploadFile } from '../procedures/upload-files.js';
 
 export function preventDefaults(e) {
   e.preventDefault();
