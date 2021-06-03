@@ -1,3 +1,4 @@
+import { DataSet } from '../data/DataSet.js';
 import { Memo } from '../data/Memo.js';
 import { MemoSet } from '../data/MemoSet.js';
 import { saveData } from '../procedures/IO-LocalStorage.js';
@@ -15,7 +16,8 @@ export function prepareData(dataSetName) {
 }
 
 function getDataObject(dataSetName) {
-  let returnArray = [];
+  const dataSet = new DataSet();
+  // let returnArray = [];
 
   try {
     const rawData = sessionStorage.getItem(dataSetName);
@@ -53,7 +55,7 @@ function getDataObject(dataSetName) {
       }
 
       // returnArray.push(dataRaw);
-      returnArray.push(memoSet);
+      dataSet.memoSetList.push(memoSet);
     }
 
     // console.log(lines);
@@ -62,5 +64,5 @@ function getDataObject(dataSetName) {
     console.error(e);
   }
 
-  return returnArray;
+  return dataSet;
 }
