@@ -1,3 +1,5 @@
+import { DataSet } from '../data/DataSet.js';
+
 //TODO design data
 /*
  * Data Structure

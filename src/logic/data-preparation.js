@@ -1,3 +1,5 @@
+import { Memo } from '../data/Memo.js';
+import { MemoSet } from '../data/MemoSet.js';
 import { saveData } from '../procedures/IO-LocalStorage.js';
 import { prepareMainPanel } from '../procedures/prepare-main-panel.js';
 import { Tokenizer } from '../procedures/Tokenizer.js';
@@ -16,8 +18,8 @@ function getDataObject(dataSetName) {
   let returnArray = [];
 
   try {
-    let rawData = sessionStorage.getItem(dataSetName);
-    let lines = Tokenizer.getLineTokens(rawData);
+    const rawData = sessionStorage.getItem(dataSetName);
+    const lines = Tokenizer.getLineTokens(rawData);
 
     let headers = Tokenizer.getWordTokens(lines[0]);
 
@@ -26,8 +28,9 @@ function getDataObject(dataSetName) {
     }
     //each row will contain related objects
     for (let i = 1; i < lines.length; i++) {
-      let row = Tokenizer.getWordTokens(lines[i]);
-      let dataRaw = [];
+      const row = Tokenizer.getWordTokens(lines[i]);
+      const memoSet = new MemoSet();
+      // let dataRaw = [];
 
       if (headers.length !== row.length)
         throw new Error(
@@ -38,16 +41,19 @@ function getDataObject(dataSetName) {
       //Correct answer level will be stored in the progress variable
 
       for (let j = 0; j < headers.length; j++) {
-        let newObject = {
-          header: headers[j],
-          value: row[j],
-          progress: 0,
-        };
+        const memo = new Memo(headers[j], row[j]);
+        // let newObject = {
+        //   header: headers[j],
+        //   value: row[j],
+        //   progress: 0,
+        // };
 
-        dataRaw.push(newObject);
+        // dataRaw.push(newObject);
+        memoSet.memoList.push(memo);
       }
 
-      returnArray.push(dataRaw);
+      // returnArray.push(dataRaw);
+      returnArray.push(memoSet);
     }
 
     // console.log(lines);
