@@ -17,7 +17,6 @@ export function handleDrop(e) {
   let dt = e.dataTransfer;
   let files = dt.files;
 
-  // handleFiles(files);
   [...files].forEach(uploadFile);
 }
 
@@ -25,5 +24,4 @@ export function handleDrop(e) {
 export function handleFiles(event) {
   const files = event.currentTarget.files;
   [...files].forEach(uploadFile);
-  console.log('drag&drop handler call the upload files');
 }

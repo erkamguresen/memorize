@@ -1,5 +1,4 @@
 export function getFileName(file) {
-  console.log('getFileName');
   if (file.name.includes('.')) {
     let fileName = '';
 

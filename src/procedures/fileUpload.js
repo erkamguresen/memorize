@@ -2,8 +2,6 @@ import { getFileName } from '../procedures/file-IO.js';
 import { getNewDataSetElement } from '../procedures/update-data-list.js';
 
 export function uploadFile(file) {
-  console.log('upload file procedures');
-
   let textFromFile = '';
   let dataSetName = getFileName(file);
   let reader = new FileReader();
@@ -23,8 +21,6 @@ export function uploadFile(file) {
     dataSetList.appendChild(newDataSetElement);
 
     sessionStorage.setItem(dataSetName, textFromFile);
-
-    console.log('onload complete');
   };
 
   reader.onerror = function () {
