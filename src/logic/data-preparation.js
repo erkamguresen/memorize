@@ -1,7 +1,7 @@
 import { DataSet } from '../data/DataSet.js';
 import { Memo } from '../data/Memo.js';
 import { MemoSet } from '../data/MemoSet.js';
-import { saveData } from '../procedures/IO-LocalStorage.js';
+import { saveDataSet } from '../procedures/IO-LocalStorage.js';
 import { prepareMainPanel } from '../procedures/prepare-main-panel.js';
 import { Tokenizer } from '../procedures/Tokenizer.js';
 
@@ -10,7 +10,7 @@ export function prepareData(dataSetName) {
   let dataObjects = getDataObject(dataSetName);
 
   // Save data object to local storage
-  saveData(dataSetName, dataObjects);
+  saveDataSet(dataSetName, dataObjects);
 
   prepareMainPanel(dataSetName);
 }

@@ -3,32 +3,32 @@
  * This function is the main function for study
  * It starts study event and prepares the data and the page
  */
-function study() {
-  //get the selected data name from page
-  const setName = document.querySelector('#data-name').textContent;
+// function study() {
+//   //get the selected data name from page
+//   const setName = document.querySelector('#data-name').textContent;
 
-  //construct the data name to get it from localStorage
-  const dataSetName = `${setName} Data`;
+//   //construct the data name to get it from localStorage
+//   const dataSetName = `${setName} Data`;
 
-  let dataSet = JSON.parse(localStorage.getItem(dataSetName));
+//   let dataSet = JSON.parse(localStorage.getItem(dataSetName));
 
-  //hide aside panel
-  hideAside();
+//   //hide aside panel
+//   hideAside();
 
-  //setup main panel
-  setupMainPanel(setName);
+//   //setup main panel
+//   setupMainPanel(setName);
 
-  //load flash cards to study
-  loadFlashCards(dataSet);
-}
+//   //load flash cards to study
+//   loadFlashCards(dataSet);
+// }
 
-/**
- * This function hides the aside panel
- */
-function hideAside() {
-  const aside = document.querySelector('aside');
-  aside.style.display = 'none';
-}
+// /**
+//  * This function hides the aside panel
+//  */
+// function hideAside() {
+//   const aside = document.querySelector('aside');
+//   aside.style.display = 'none';
+// }
 
 /**
  * This function get the name of the data set and prepares
