@@ -1,5 +1,5 @@
 import { getFileName } from '../procedures/file-IO.js';
-import { getNewDataSetElement } from '../procedures/update-data-list';
+import { getNewDataSetElement } from '../procedures/update-data-list.js';
 
 export function uploadFile(file) {
   console.log('upload file procedures');
