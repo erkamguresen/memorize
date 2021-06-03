@@ -1,107 +1,107 @@
-let dropArea = document.getElementById("drop-area");
+// let dropArea = document.getElementById("drop-area");
 
-["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-  dropArea.addEventListener(eventName, preventDefaults, false);
-});
+// ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+//   dropArea.addEventListener(eventName, preventDefaults, false);
+// });
 
-function preventDefaults(e) {
-  e.preventDefault();
-  e.stopPropagation();
-}
+// function preventDefaults(e) {
+//   e.preventDefault();
+//   e.stopPropagation();
+// }
 
-["dragenter", "dragover"].forEach((eventName) => {
-  dropArea.addEventListener(eventName, highlight);
-});
-["dragleave", "drop"].forEach((eventName) => {
-  dropArea.addEventListener(eventName, unhighlight);
-});
+// ['dragenter', 'dragover'].forEach((eventName) => {
+//   dropArea.addEventListener(eventName, highlight);
+// });
+// ['dragleave', 'drop'].forEach((eventName) => {
+//   dropArea.addEventListener(eventName, unhighlight);
+// });
 
-function highlight(e) {
-  dropArea.classList.add("highlight");
-}
+// function highlight(e) {
+//   dropArea.classList.add('highlight');
+// }
 
-function unhighlight(e) {
-  dropArea.classList.remove("highlight");
-}
+// function unhighlight(e) {
+//   dropArea.classList.remove('highlight');
+// }
 
-dropArea.addEventListener("drop", handleDrop);
+// dropArea.addEventListener('drop', handleDrop);
 
-function handleDrop(e) {
-  let dt = e.dataTransfer;
-  let files = dt.files;
+// function handleDrop(e) {
+//   let dt = e.dataTransfer;
+//   let files = dt.files;
 
-  handleFiles(files);
-}
+//   handleFiles(files);
+// }
 
-//without previewFile
-function handleFiles(files) {
-  [...files].forEach(uploadFile);
-}
+// //without previewFile
+// function handleFiles(files) {
+//   [...files].forEach(uploadFile);
+// }
 
-function uploadFile(file) {
-  let textFromFile = "";
-  let dataSetName = getFileName(file);
-  let reader = new FileReader();
+// function uploadFile(file) {
+//   let textFromFile = '';
+//   let dataSetName = getFileName(file);
+//   let reader = new FileReader();
 
-  reader.readAsText(file);
-  //async problem code executes while file loading so when the console tries
-  //to log the text from file it was not completed yet
-  //Thus write into onload function
+//   reader.readAsText(file);
+//   //async problem code executes while file loading so when the console tries
+//   //to log the text from file it was not completed yet
+//   //Thus write into onload function
 
-  reader.onload = function () {
-    textFromFile = reader.result;
+//   reader.onload = function () {
+//     textFromFile = reader.result;
 
-    let dataSetList = document.getElementById("file-list");
+//     let dataSetList = document.getElementById('file-list');
 
-    let newDataSetElement = getNewDataSetElement(dataSetName, textFromFile);
+//     let newDataSetElement = getNewDataSetElement(dataSetName, textFromFile);
 
-    dataSetList.appendChild(newDataSetElement);
+//     dataSetList.appendChild(newDataSetElement);
 
-    sessionStorage.setItem(dataSetName, textFromFile);
-  };
+//     sessionStorage.setItem(dataSetName, textFromFile);
+//   };
 
-  reader.onerror = function () {
-    console.log(reader.error);
-  };
-}
+//   reader.onerror = function () {
+//     console.log(reader.error);
+//   };
+// }
 
-function getFileName(file) {
-  if (file.name.includes(".")) {
-    let fileName = "";
+// function getFileName(file) {
+//   if (file.name.includes('.')) {
+//     let fileName = '';
 
-    for (let i = 0; i < file.name.length; i++) {
-      const char = file.name[i];
+//     for (let i = 0; i < file.name.length; i++) {
+//       const char = file.name[i];
 
-      if (char === ".") break;
+//       if (char === '.') break;
 
-      fileName += char;
-    }
+//       fileName += char;
+//     }
 
-    return fileName;
-  }
+//     return fileName;
+//   }
 
-  return file.name;
-}
+//   return file.name;
+// }
 
-function getNewDataSetElement(dataSetName, data) {
-  let newDataSet = document.createElement("li");
+// function getNewDataSetElement(dataSetName, data) {
+//   let newDataSet = document.createElement('li');
 
-  newDataSet.appendChild(document.createTextNode(dataSetName));
-  newDataSet.className = "list-group-item";
+//   newDataSet.appendChild(document.createTextNode(dataSetName));
+//   newDataSet.className = 'list-group-item';
 
-  let playButton = document.createElement("button");
+//   let playButton = document.createElement('button');
 
-  playButton.className = "btn success btn-sm float-right play";
+//   playButton.className = 'btn success btn-sm float-right play';
 
-  let icon = document.createElement("i");
-  icon.className = "fa fa-play play";
+//   let icon = document.createElement('i');
+//   icon.className = 'fa fa-play play';
 
-  playButton.appendChild(icon);
+//   playButton.appendChild(icon);
 
-  newDataSet.appendChild(playButton);
+//   newDataSet.appendChild(playButton);
 
-  return newDataSet;
-}
+//   return newDataSet;
+// }
 
 //TODO: limit files to txt and json
 
