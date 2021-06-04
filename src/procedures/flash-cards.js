@@ -29,10 +29,10 @@ export function loadFlashCards(dataSet) {
 
   // add flash cards
   let index = 0;
-  // for (let i = 0; i < dataSet.length; i++) {
+
   for (let i = 0; i < dataSet.memoSetList.length; i++) {
     const questionPreFix = 'What is the answer ?';
-    // const questionPostFix = `(${dataSet[i][0].value})`;
+
     const questionPostFix = `(${dataSet.memoSetList[i].memoList[0].value})`;
 
     for (let j = 1; j < dataSet.memoSetList[i].memoList.length; j++) {
