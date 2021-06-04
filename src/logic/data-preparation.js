@@ -71,5 +71,6 @@ function getDataObject(dataSetName) {
   dataSet.prepareFlashCards();
   dataSet.prepareMemorizeQuizCards();
 
+  console.log(dataSet);
   return dataSet;
 }

@@ -1,4 +1,4 @@
-import { memorizeDataBase } from '../data/data.js';
+import { currentFlashCardList, memorizeDataBase } from '../data/data.js';
 import { loadFlashCards } from '../procedures/flash-cards.js';
 import { hideAside } from '../procedures/hide-side-panel.js';
 import { setupMainPanelToStudy } from '../procedures/prepare-main-panel.js';
@@ -13,9 +13,13 @@ export function studyHandler(event) {
   const dataSetName = `${setName} Data`;
 
   // const dataSet = getDataSet(dataSetName);
-  const dataSet = memorizeDataBase.dataSetList.filter(
+  const dataSets = memorizeDataBase.dataSetList.filter(
     (element) => (element.dataSetName = dataSetName)
   );
+
+  const firstDataSet = dataSets[0];
+
+  console.log(dataSets);
 
   //hide aside panel
   hideAside();
@@ -23,6 +27,11 @@ export function studyHandler(event) {
   //setup main panel
   setupMainPanelToStudy(setName);
 
+  //assign current flash card list
+  //TODO: Uncaught TypeError: Cannot read property 'flashCards' of undefined
+  // at HTMLButtonElement.studyHandler (studyHandler.js:31)
+  currentFlashCardList = firstDataSet.flashCards;
+
   //load flash cards to study
-  loadFlashCards(dataSet[0]);
+  loadFlashCards(firstDataSet);
 }

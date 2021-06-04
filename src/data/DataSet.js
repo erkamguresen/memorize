@@ -18,14 +18,14 @@ export class DataSet {
     //TODO: prepare the flash Cards
     let index = 0;
 
-    for (let i = 0; i < memoSets.length; i++) {
+    for (let i = 0; i < this.memoSetList.length; i++) {
       const questionPreFix = 'What is the correct answer ?';
 
-      const questionPostFix = ` (${dataSet.memoSets[i].memoList[0].value})`;
+      const questionPostFix = ` (${this.memoSetList[i].memoList[0].value})`;
 
-      for (let j = 1; j < dataSet.memoSets[i].memoList.length; j++) {
+      for (let j = 1; j < this.memoSetList[i].memoList.length; j++) {
         //for each element in the data matrix
-        const memo = dataSet.memoSets[i].memoList[j];
+        const memo = this.memoSetList[i].memoList[j];
 
         //generate a flash card
         const flashCard = new FlashCard(

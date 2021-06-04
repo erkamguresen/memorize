@@ -1,12 +1,13 @@
 import { Memo } from './Memo.js';
 
-export class FlashCard extends Memo {
+export class FlashCard {
   constructor(
     index,
     memo,
     questionPreFix = 'What is the answer ?',
     questionPostFix
   ) {
+    this.memo = memo;
     this.index = index;
     this.randomIndex = Math.random();
     this.creationDate = Date.now();
