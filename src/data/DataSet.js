@@ -1,6 +1,12 @@
 import { MemoSet } from '../data/MemoSet.js';
 export class DataSet {
-  constructor(memoSets = [], flashCards = [], memorizeQuizCards = []) {
+  constructor(
+    dataSetName,
+    memoSets = [],
+    flashCards = [],
+    memorizeQuizCards = []
+  ) {
+    this.dataSetName = dataSetName;
     this.creationDate = Date.now();
     this.memoSetList = memoSets;
     this.flashCards = flashCards;

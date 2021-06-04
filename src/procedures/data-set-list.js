@@ -1,16 +1,32 @@
 import { memorizeDataBase } from '../data/data.js';
+import { getNewDataSetElement } from './update-data-list.js';
 
 export function loadExistingData() {
-  //   memorizeDataBase.dataSetList = getMemorizeDataSetList();
+  // get the main data set list
   const dataSetList = memorizeDataBase.dataSetList;
 
-  if (dataSetList !== null) {
+  const header = document.querySelector('#data-set-list-view h3');
+
+  if (dataSetList.length > 0) {
+    // if (dataSetList !== null && dataSetList.length > 0) {
+    // make the list header visible
+    header.style.visibility = 'visible';
+    // select the list to show existing datasets
     const dataSetListElement = document.getElementById('existing-dataSet-list');
 
-    dataSetList.forEach((dataSet) => {
-      let newDataSetElement = getNewDataSetElement(dataSetName);
+    console.log(dataSetList);
 
-      dataSetList.appendChild(newDataSetElement);
+    //TODO:
+    dataSetList.forEach((dataSetName) => {
+      //generate a list element for each dataset
+      let newDataSetElement = getNewDataSetElement(dataSetName);
+      console.log(dataSetName);
+
+      //append existing element to saved data lists
+
+      console.log(newDataSetElement);
+
+      dataSetListElement.appendChild(newDataSetElement);
     });
   }
 }

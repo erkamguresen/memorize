@@ -12,6 +12,10 @@ export function uploadFile(file) {
   //Thus write into onload function
 
   reader.onload = function () {
+    //select header & set visible
+    const header = document.querySelector('#file-list-view h3');
+    header.style.visibility = 'visible';
+
     textFromFile = reader.result;
 
     let dataSetList = document.getElementById('file-list');

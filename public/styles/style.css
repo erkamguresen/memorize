@@ -199,8 +199,17 @@ ul {
   float: right !important;
 }
 
+/* #file-list-view,
 #data-set-list-view {
   text-align: center;
+  margin-bottom: 10px;
+} */
+
+#file-list-view h3,
+#data-set-list-view h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  visibility: hidden;
 }
 
 /* Main part */

@@ -16,7 +16,7 @@ export function prepareData(dataSetName) {
 }
 
 function getDataObject(dataSetName) {
-  const dataSet = new DataSet();
+  const dataSet = new DataSet(dataSetName);
   // let returnArray = [];
 
   try {
@@ -32,7 +32,6 @@ function getDataObject(dataSetName) {
     for (let i = 1; i < lines.length; i++) {
       const row = Tokenizer.getWordTokens(lines[i]);
       const memoSet = new MemoSet();
-      // let dataRaw = [];
 
       if (headers.length !== row.length)
         throw new Error(
@@ -44,21 +43,12 @@ function getDataObject(dataSetName) {
 
       for (let j = 0; j < headers.length; j++) {
         const memo = new Memo(headers[j], row[j]);
-        // let newObject = {
-        //   header: headers[j],
-        //   value: row[j],
-        //   progress: 0,
-        // };
 
-        // dataRaw.push(newObject);
         memoSet.memoList.push(memo);
       }
 
-      // returnArray.push(dataRaw);
       dataSet.memoSetList.push(memoSet);
     }
-
-    // console.log(lines);
   } catch (e) {
     console.error(e.message);
     console.error(e);
