@@ -29,3 +29,6 @@ import { DataSet } from '../data/DataSet.js';
 export const memorizeDataBase = {
   DataSetList: [],
 };
+
+//global flash card list
+export const flashCardList = [];

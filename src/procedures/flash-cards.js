@@ -1,3 +1,5 @@
+import { flashCardList } from '../data/data.js';
+
 import {
   addAnswerListener,
   addNextListener,
@@ -31,9 +33,9 @@ export function loadFlashCards(dataSet) {
   let index = 0;
 
   for (let i = 0; i < dataSet.memoSetList.length; i++) {
-    const questionPreFix = 'What is the answer ?';
+    const questionPreFix = 'What is the correct answer ?';
 
-    const questionPostFix = `(${dataSet.memoSetList[i].memoList[0].value})`;
+    const questionPostFix = ` (${dataSet.memoSetList[i].memoList[0].value})`;
 
     for (let j = 1; j < dataSet.memoSetList[i].memoList.length; j++) {
       //for each element in the matrix
@@ -89,9 +91,8 @@ export function loadFlashCards(dataSet) {
   nextButton.appendChild(rightIcon);
   studyDiv.appendChild(nextButton);
 
-  //add click event listeners to enable navigation between the flash cards
   addPreviousListener(previousButton);
   addNextListener(nextButton);
-  //   previousButton.addEventListener('click', previousFlashCard, false);
-  //   nextButton.addEventListener('click', nextFlashCard, false);
+
+  console.log(flashCardList);
 }
