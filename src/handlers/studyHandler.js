@@ -1,9 +1,11 @@
-import { hideAside } from '../procedures/hide-side-panel';
-import { getDataSet } from '../procedures/IO-LocalStorage';
+import { loadFlashCards } from '../procedures/flash-cards.js';
+import { hideAside } from '../procedures/hide-side-panel.js';
+import { getDataSet } from '../procedures/IO-LocalStorage.js';
+import { setupMainPanelToStudy } from '../procedures/prepare-main-panel.js';
 
 export function studyHandler(event) {
-  e.preventDefault();
-  e.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
 
   const setName = document.querySelector('#data-name').textContent;
 
@@ -16,7 +18,7 @@ export function studyHandler(event) {
   hideAside();
 
   //setup main panel
-  setupMainPanel(setName);
+  setupMainPanelToStudy(setName);
 
   //load flash cards to study
   loadFlashCards(dataSet);

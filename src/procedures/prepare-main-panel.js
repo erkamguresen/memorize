@@ -1,7 +1,7 @@
 import { prepareMemorizeListeners } from '../listeners/memorizeListener.js';
 import { prepareStudyListeners } from '../listeners/studyListener.js';
 
-export function prepareMainPanel(title) {
+export function prepareMainPanelToChoose(title) {
   const dataSetName = `${title} Data`;
   let mainPanel = document.querySelector('main');
   // console.log(mainPanel);
@@ -37,4 +37,36 @@ export function prepareMainPanel(title) {
   buttonsDiv.appendChild(quizButton);
 
   prepareMemorizeListeners(quizButton);
+}
+
+/**
+ * This function get the name of the data set and prepares
+ * the main panel for studies.
+ *
+ * @param {string} titleToStudy  name of the data set which
+ * will be studied
+ */
+export function setupMainPanelToStudy(titleToStudy) {
+  const mainTag = document.querySelector('main');
+
+  //remove the left border
+  const mainDiv = document.querySelector('#main-container');
+  mainDiv.className = '';
+  mainTag.style.border = 'none';
+
+  //empty main panel
+  mainTag.innerHTML = '';
+
+  const display = document.createElement('div');
+  display.setAttribute('id', 'display');
+
+  const h1 = document.createElement('h1');
+  h1.textContent = `Study ${titleToStudy}`;
+  display.appendChild(h1);
+
+  const studyDiv = document.createElement('div');
+  studyDiv.setAttribute('id', 'study');
+  display.appendChild(studyDiv);
+
+  mainTag.appendChild(display);
 }
