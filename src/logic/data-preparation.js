@@ -5,6 +5,13 @@ import { saveDataSet } from '../procedures/IO-LocalStorage.js';
 import { prepareMainPanelToChoose } from '../procedures/prepare-main-panel.js';
 import { Tokenizer } from '../procedures/Tokenizer.js';
 
+/**
+ * This function will be use for making a dataset from a file content.
+ * File content will be revived  from Session Storage.
+ *
+ * @param {string} dataSetName name of the data set
+ * which will be revived from Session Storage
+ */
 export function prepareData(dataSetName) {
   // make objects
   let dataObjects = getDataObject(dataSetName);

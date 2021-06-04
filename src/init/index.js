@@ -1,9 +1,9 @@
 import '../data/data.js';
 
 import '../listeners/dragAndDropListener.js';
-import '../listeners/dataListListener.js';
-import { loadExistingData } from '../procedures/data-set-list.js';
+import '../listeners/fileListListener.js';
+import '../listeners/savedDataListListener.js';
 
-// console.log('index.js');
+import { loadExistingData } from '../procedures/data-set-list.js';
 
 loadExistingData();
