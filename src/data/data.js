@@ -1,7 +1,5 @@
-import { DataSet } from '../data/DataSet.js';
 import { getMemorizeDataSetList } from '../procedures/IO-LocalStorage.js';
-
-//TODO design data
+//TODO:explain data structure
 /*
  * Data Structure
  * ----------------

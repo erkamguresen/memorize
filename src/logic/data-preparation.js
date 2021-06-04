@@ -22,9 +22,13 @@ export function prepareDataFromFileContent(dataSetName) {
   prepareMainPanelToChoose(dataSetName);
 }
 
+/**
+ * This function will be use for making a dataset from a memory.
+ *
+ * @param {string} dataSetName name of the data set
+ * which will be revived from memory(data.js)
+ */
 export function prepareDataFromMemory(dataSetName) {
-  //TODO:
-
   prepareMainPanelToChoose(dataSetName);
 }
 

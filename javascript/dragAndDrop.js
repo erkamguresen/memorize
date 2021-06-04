@@ -102,5 +102,3 @@ function getNewDataSetElement(dataSetName, data) {
 
   return newDataSet;
 }
-
-//TODO: Read the Json file prepare accordingly
