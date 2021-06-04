@@ -1,4 +1,4 @@
-import { prepareData } from '../logic/data-preparation.js';
+import { prepareDataFromFileContent } from '../logic/data-preparation.js';
 
 export function handleDataPreparation(event) {
   if (event.target.classList.contains('play')) {
@@ -10,6 +10,6 @@ export function handleDataPreparation(event) {
 
     let dataSetName = currentElement.firstChild.textContent;
 
-    prepareData(dataSetName);
+    prepareDataFromFileContent(dataSetName);
   }
 }

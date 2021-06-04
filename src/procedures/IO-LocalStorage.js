@@ -42,9 +42,7 @@ function updateDataSetList(dataSetName) {
     localStorage.setItem(localStorageMainSave, JSON.stringify([]));
   }
 
-  debugger;
   const dataSetList = JSON.parse(localStorage.getItem(localStorageMainSave));
-  console.log(localStorage.getItem(localStorageMainSave));
 
   if (!dataSetList.includes(dataSetName)) {
     dataSetList.push(dataSetName);

@@ -25,7 +25,6 @@ export function prepareMainPanelToChoose(title) {
   studyButton.className = 'btn info';
   studyButton.textContent = 'Study';
   studyButton.id = 'study-button';
-  // studyButton.setAttribute('onclick', 'study()');
   buttonsDiv.appendChild(studyButton);
 
   prepareStudyListeners(studyButton);
@@ -34,7 +33,6 @@ export function prepareMainPanelToChoose(title) {
   let quizButton = document.createElement('button');
   quizButton.className = 'btn success';
   quizButton.textContent = `Let's Memorize`;
-  // quizButton.setAttribute('onclick', 'quiz()');
   buttonsDiv.appendChild(quizButton);
 
   prepareMemorizeListeners(quizButton);

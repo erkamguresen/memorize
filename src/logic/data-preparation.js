@@ -12,12 +12,18 @@ import { Tokenizer } from '../procedures/Tokenizer.js';
  * @param {string} dataSetName name of the data set
  * which will be revived from Session Storage
  */
-export function prepareData(dataSetName) {
+export function prepareDataFromFileContent(dataSetName) {
   // make objects
   let dataObjects = getDataObject(dataSetName);
 
   // Save data object to local storage
   saveDataSet(dataSetName, dataObjects);
+
+  prepareMainPanelToChoose(dataSetName);
+}
+
+export function prepareDataFromMemory(dataSetName) {
+  //TODO:
 
   prepareMainPanelToChoose(dataSetName);
 }

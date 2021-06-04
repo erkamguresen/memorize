@@ -1,6 +1,6 @@
+import { memorizeDataBase } from '../data/data.js';
 import { loadFlashCards } from '../procedures/flash-cards.js';
 import { hideAside } from '../procedures/hide-side-panel.js';
-import { getDataSet } from '../procedures/IO-LocalStorage.js';
 import { setupMainPanelToStudy } from '../procedures/prepare-main-panel.js';
 
 export function studyHandler(event) {
@@ -12,7 +12,10 @@ export function studyHandler(event) {
   //construct the data name to get it from localStorage
   const dataSetName = `${setName} Data`;
 
-  const dataSet = getDataSet(dataSetName);
+  // const dataSet = getDataSet(dataSetName);
+  const dataSet = memorizeDataBase.dataSetList.filter(
+    (element) => (element.dataSetName = dataSetName)
+  );
 
   //hide aside panel
   hideAside();
@@ -21,5 +24,5 @@ export function studyHandler(event) {
   setupMainPanelToStudy(setName);
 
   //load flash cards to study
-  loadFlashCards(dataSet);
+  loadFlashCards(dataSet[0]);
 }

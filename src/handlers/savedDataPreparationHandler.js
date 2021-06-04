@@ -1,4 +1,4 @@
-import { prepareData } from '../logic/data-preparation.js';
+import { prepareDataFromMemory } from '../logic/data-preparation.js';
 
 export function handleSavedDataPreparation(event) {
   if (event.target.classList.contains('play')) {
@@ -10,6 +10,6 @@ export function handleSavedDataPreparation(event) {
 
     let dataSetName = currentElement.firstChild.textContent;
 
-    prepareData(dataSetName);
+    prepareDataFromMemory(dataSetName);
   }
 }

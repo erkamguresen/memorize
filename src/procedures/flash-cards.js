@@ -93,7 +93,4 @@ export function loadFlashCards(dataSet) {
 
   addPreviousListener(previousButton);
   addNextListener(nextButton);
-
-  //TODO delete later
-  console.log(currentFlashCardList);
 }

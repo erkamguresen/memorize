@@ -1,4 +1,4 @@
-import { handleSavedDataPreparation } from '../handlers/savedDataPreparationHandler';
+import { handleSavedDataPreparation } from '../handlers/savedDataPreparationHandler.js';
 
 let savedDataList = document.getElementById('existing-dataSet-list');
 
