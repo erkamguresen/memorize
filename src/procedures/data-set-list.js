@@ -8,24 +8,17 @@ export function loadExistingData() {
   const header = document.querySelector('#data-set-list-view h3');
 
   if (dataSetList.length > 0) {
-    // if (dataSetList !== null && dataSetList.length > 0) {
     // make the list header visible
     header.style.visibility = 'visible';
+
     // select the list to show existing datasets
     const dataSetListElement = document.getElementById('existing-dataSet-list');
 
-    console.log(dataSetList);
-
-    //TODO:
-    dataSetList.forEach((dataSetName) => {
+    dataSetList.forEach((dataSet) => {
       //generate a list element for each dataset
-      let newDataSetElement = getNewDataSetElement(dataSetName);
-      console.log(dataSetName);
+      let newDataSetElement = getNewDataSetElement(dataSet.dataSetName);
 
       //append existing element to saved data lists
-
-      console.log(newDataSetElement);
-
       dataSetListElement.appendChild(newDataSetElement);
     });
   }
