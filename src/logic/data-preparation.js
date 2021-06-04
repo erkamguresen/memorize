@@ -34,7 +34,6 @@ export function prepareDataFromMemory(dataSetName) {
 
 function getDataObject(dataSetName) {
   const dataSet = new DataSet(dataSetName);
-  // let returnArray = [];
 
   try {
     const rawData = sessionStorage.getItem(dataSetName);
@@ -56,8 +55,6 @@ function getDataObject(dataSetName) {
           `${i}th row of data table does not have same length with header row`
         );
 
-      //Correct answer level will be stored in the progress variable
-
       for (let j = 0; j < headers.length; j++) {
         const memo = new Memo(headers[j], row[j]);
 
@@ -70,6 +67,9 @@ function getDataObject(dataSetName) {
     console.error(e.message);
     console.error(e);
   }
+
+  dataSet.prepareFlashCards();
+  dataSet.prepareMemorizeQuizCards();
 
   return dataSet;
 }
