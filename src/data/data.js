@@ -1,4 +1,5 @@
 import { DataSet } from '../data/DataSet.js';
+import { getMemorizeDataSetList } from '../procedures/IO-LocalStorage.js';
 
 //TODO design data
 /*
@@ -27,8 +28,8 @@ import { DataSet } from '../data/DataSet.js';
  */
 
 export const memorizeDataBase = {
-  DataSetList: [],
+  dataSetList: getMemorizeDataSetList() || [],
 };
 
 //global flash card list
-export const flashCardList = [];
+export const currentFlashCardList = [];

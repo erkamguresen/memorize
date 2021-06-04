@@ -199,6 +199,10 @@ ul {
   float: right !important;
 }
 
+#data-set-list-view {
+  text-align: center;
+}
+
 /* Main part */
 
 main {

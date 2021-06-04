@@ -1,4 +1,9 @@
-export function getNewDataSetElement(dataSetName, data) {
+/**
+ *
+ * @param {string} dataSetName name of the data set which is also the file name
+ * @returns a <li> element with dataset name and button for data preparation
+ */
+export function getNewDataSetElement(dataSetName) {
   let newDataSet = document.createElement('li');
 
   newDataSet.appendChild(document.createTextNode(dataSetName));

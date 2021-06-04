@@ -1,4 +1,4 @@
-import { flashCardList } from '../data/data.js';
+import { currentFlashCardList } from '../data/data.js';
 
 import {
   addAnswerListener,
@@ -94,5 +94,6 @@ export function loadFlashCards(dataSet) {
   addPreviousListener(previousButton);
   addNextListener(nextButton);
 
-  console.log(flashCardList);
+  //TODO delete later
+  console.log(currentFlashCardList);
 }

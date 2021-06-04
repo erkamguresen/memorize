@@ -16,7 +16,7 @@ export function uploadFile(file) {
 
     let dataSetList = document.getElementById('file-list');
 
-    let newDataSetElement = getNewDataSetElement(dataSetName, textFromFile);
+    let newDataSetElement = getNewDataSetElement(dataSetName);
 
     dataSetList.appendChild(newDataSetElement);
 
