@@ -1,4 +1,5 @@
 import { prepareMemorizeListeners } from '../listeners/memorizeListener.js';
+import { addRandomFlashCardEventListener } from '../listeners/randomFlashCardListener.js';
 import { prepareStudyListeners } from '../listeners/studyListener.js';
 
 export function prepareMainPanelToChoose(title) {
@@ -64,8 +65,6 @@ export function setupMainPanelToStudy(titleToStudy) {
   h1.textContent = `Study ${titleToStudy}`;
   display.appendChild(h1);
 
-  //TODO write ToggleButton here
-
   const toggleDiv = document.createElement('div');
   toggleDiv.className = 'flex';
   toggleDiv.style.justifyContent = 'center';
@@ -91,6 +90,9 @@ export function setupMainPanelToStudy(titleToStudy) {
   toggleDiv.appendChild(toggleButton);
 
   display.appendChild(toggleDiv);
+
+  //add event listener for random card toggle
+  addRandomFlashCardEventListener(toggleInput);
 
   const studyDiv = document.createElement('div');
   studyDiv.setAttribute('id', 'study');

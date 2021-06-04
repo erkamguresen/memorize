@@ -90,3 +90,21 @@ export function nextFlashCard(event) {
     currentElement.lastChild.style.visibility = 'hidden';
   }
 }
+
+export function toggleRandomFlashCard(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  const isRandomFlash = event.target.checked;
+
+  const label = event.target.parentElement.parentElement.firstChild;
+  // console.log(label);
+
+  if (isRandomFlash) {
+    label.style.fontWeight = 'bold';
+    //TODO random order the flash Cards
+  } else {
+    label.style.fontWeight = 'normal';
+    //TODO order by index the flash cards
+  }
+}
