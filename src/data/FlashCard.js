@@ -1,5 +1,3 @@
-import { Memo } from './Memo.js';
-
 export class FlashCard {
   constructor(
     index,

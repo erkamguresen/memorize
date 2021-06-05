@@ -1,4 +1,3 @@
-import { MemoSet } from '../data/MemoSet.js';
 import { FlashCard } from './FlashCard.js';
 export class DataSet {
   constructor(
