@@ -45,8 +45,9 @@ export function loadFlashCards() {
   addAnswerListener(card);
 
   //initialize card with the first card
-  question.innerHTML = currentData.currentFlashCardList[0].question;
-  answer.textContent = currentData.currentFlashCardList[0].answer;
+  updateTheFlashCardElement();
+  // question.innerHTML = currentData.currentFlashCardList[0].question;
+  // answer.textContent = currentData.currentFlashCardList[0].answer;
 
   //add next button
   const nextButton = document.createElement('button');
@@ -59,4 +60,13 @@ export function loadFlashCards() {
 
   addPreviousListener(previousButton);
   addNextListener(nextButton);
+}
+
+export function updateTheFlashCardElement(flashCardArrayIndex = 0) {
+  document.querySelector('question').innerHTML =
+    currentData.currentFlashCardList[0].question;
+  document.querySelector('answer').innerText =
+    currentData.currentFlashCardList[0].answer;
+
+  document.querySelector('answer').style.visibility = 'hidden';
 }

@@ -1,3 +1,7 @@
+import { currentData } from '../data/data.js';
+import { randomizeFlashCards } from '../logic/randomize.js';
+import { updateTheFlashCardElement } from '../procedures/flash-cards.js';
+
 /**
  * This function show the hidden answer part of the flash card
  *
@@ -100,11 +104,21 @@ export function toggleRandomFlashCard(event) {
   const label = event.target.parentElement.parentElement.firstChild;
   // console.log(label);
 
+  const flashCards = currentData.currentFlashCardList;
+
   if (isRandomFlash) {
     label.style.fontWeight = 'bold';
-    //TODO random order the flash Cards
+    //random order the flash Cards
+    randomizeFlashCards(flashCards);
+    flashCards.sort((a, b) => a.randomIndex - b.randomIndex);
+
+    updateTheFlashCardElement();
   } else {
     label.style.fontWeight = 'normal';
-    //TODO order by index the flash cards
+    //order by index the flash cards
+    flashCards.sort((a, b) => a.index - b.index);
+
+    updateTheFlashCardElement();
   }
+  //TODO: initialize again the seen flash card
 }
