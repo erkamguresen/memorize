@@ -30,4 +30,8 @@ export const memorizeDataBase = {
 };
 
 //global flash card list
-export let currentFlashCardList = [];
+export const currentData = {
+  currentDataSetName: '',
+  currentFlashCardList: [],
+  currentMemorizeQuizCardList: [],
+};

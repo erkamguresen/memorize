@@ -1,15 +1,17 @@
+import { memorizeDataBase } from '../data/data.js';
+
 //Name of the main save in the local storage system
 const localStorageMainSave = 'Memorize DataBase';
 
 // Name format for each data set in the local storage system:
 // `${dataSetName} Data`
 
-export function saveDataSet(dataSetName, dataObjects) {
+export function saveDataSet(dataSet) {
   // Save data object to local storage
-  let dataJSON = JSON.stringify(dataObjects);
-  localStorage.setItem(`${dataSetName} Data`, dataJSON);
+  let dataJSON = JSON.stringify(dataSet);
+  localStorage.setItem(`${dataSet.dataSetName} Data`, dataJSON);
 
-  updateDataSetList(`${dataSetName} Data`);
+  updateDataSetList(`${dataSet.dataSetName} Data`);
 }
 
 export function getDataSet(dataSetName) {
@@ -48,4 +50,7 @@ function updateDataSetList(dataSetName) {
     dataSetList.push(dataSetName);
     localStorage.setItem(localStorageMainSave, JSON.stringify(dataSetList));
   }
+
+  //update the memorizeDataBase
+  memorizeDataBase.dataSetList = dataSetList;
 }

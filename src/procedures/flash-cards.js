@@ -1,4 +1,4 @@
-import { currentFlashCardList } from '../data/data.js';
+import { currentData } from '../data/data.js';
 
 import {
   addAnswerListener,
@@ -9,15 +9,9 @@ import {
 /**
  * This function prepares and displays the flash cards
  *
- * @param {object} dataSet is the data set from which the flash
- * cards are generated. Received data will have the following properties:
- *
- *  { 'header': valueOfHeader,
- * 'value': valueOfTheElement,
- * 'progress': valueOfTheProgress,}
  *
  */
-export function loadFlashCards(dataSet) {
+export function loadFlashCards() {
   const studyDiv = document.getElementById('study');
 
   //add previous button
@@ -51,8 +45,8 @@ export function loadFlashCards(dataSet) {
   addAnswerListener(card);
 
   //initialize card with the first card
-  question.innerHTML = currentFlashCardList[0].question;
-  answer.textContent = currentFlashCardList[0].answer;
+  question.innerHTML = currentData.currentFlashCardList[0].question;
+  answer.textContent = currentData.currentFlashCardList[0].answer;
 
   //add next button
   const nextButton = document.createElement('button');

@@ -4,6 +4,7 @@ import { MemoSet } from '../data/MemoSet.js';
 import { saveDataSet } from '../procedures/IO-LocalStorage.js';
 import { prepareMainPanelToChoose } from '../procedures/prepare-main-panel.js';
 import { Tokenizer } from '../procedures/Tokenizer.js';
+import { updateCurrentData } from './currentData.js';
 
 /**
  * This function will be use for making a dataset from a file content.
@@ -13,11 +14,14 @@ import { Tokenizer } from '../procedures/Tokenizer.js';
  * which will be revived from Session Storage
  */
 export function prepareDataFromFileContent(dataSetName) {
-  // make objects
-  let dataObjects = getDataObject(dataSetName);
+  // make dataset
+  let dataSet = getDataSetFromFileContent(dataSetName);
+
+  //update the current data
+  updateCurrentData(dataSet);
 
   // Save data object to local storage
-  saveDataSet(dataSetName, dataObjects);
+  saveDataSet(dataSet);
 
   prepareMainPanelToChoose(dataSetName);
 }
@@ -30,9 +34,19 @@ export function prepareDataFromFileContent(dataSetName) {
  */
 export function prepareDataFromMemory(dataSetName) {
   prepareMainPanelToChoose(dataSetName);
+  //TODO:update the current data
+  // updateCurrentData(dataSet);
 }
 
-function getDataObject(dataSetName) {
+/**
+ * This function will return a full dataset from a recently read file.
+ * File content wil be revived from the sessionStorage based on
+ * the dataset name
+ *
+ * @param {string} dataSetName name of the data set
+ * @returns {DataSet} returns a new dataset object
+ */
+function getDataSetFromFileContent(dataSetName) {
   const dataSet = new DataSet(dataSetName);
 
   try {
@@ -71,6 +85,5 @@ function getDataObject(dataSetName) {
   dataSet.prepareFlashCards();
   dataSet.prepareMemorizeQuizCards();
 
-  console.log(dataSet);
   return dataSet;
 }
