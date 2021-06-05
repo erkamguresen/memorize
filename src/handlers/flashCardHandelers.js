@@ -120,5 +120,4 @@ export function toggleRandomFlashCard(event) {
 
     updateTheFlashCardElement();
   }
-  //TODO: initialize again the seen flash card
 }

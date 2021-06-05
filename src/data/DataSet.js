@@ -15,7 +15,6 @@ export class DataSet {
   }
 
   prepareFlashCards() {
-    //TODO: prepare the flash Cards
     let index = 0;
 
     for (let i = 0; i < this.memoSetList.length; i++) {
