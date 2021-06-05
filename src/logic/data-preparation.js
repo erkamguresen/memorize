@@ -1,7 +1,7 @@
 import { DataSet } from '../data/DataSet.js';
 import { Memo } from '../data/Memo.js';
 import { MemoSet } from '../data/MemoSet.js';
-import { saveDataSet } from '../procedures/IO-LocalStorage.js';
+import { getDataSet, saveDataSet } from '../procedures/IO-LocalStorage.js';
 import { prepareMainPanelToChoose } from '../procedures/prepare-main-panel.js';
 import { Tokenizer } from '../procedures/Tokenizer.js';
 import { updateCurrentData } from './currentData.js';
@@ -10,8 +10,8 @@ import { updateCurrentData } from './currentData.js';
  * This function will be use for making a dataset from a file content.
  * File content will be revived  from Session Storage.
  *
- * @param {string} dataSetName name of the data set
- * which will be revived from Session Storage
+ * @param {string} dataSetName name of the data set without "... Data"
+ * in the end. This name will be used to revive the file content.
  */
 export function prepareDataFromFileContent(dataSetName) {
   // make dataset
@@ -29,13 +29,15 @@ export function prepareDataFromFileContent(dataSetName) {
 /**
  * This function will be use for making a dataset from a memory.
  *
- * @param {string} dataSetName name of the data set
+ * @param {string} dataSetName name of the data set without "... Data"
+ * in the end
  * which will be revived from memory(data.js)
  */
 export function prepareDataFromMemory(dataSetName) {
+  //update the current data
+  updateCurrentData(getDataSet(`${dataSetName} Data`));
+
   prepareMainPanelToChoose(dataSetName);
-  //TODO:update the current data
-  // updateCurrentData(dataSet);
 }
 
 /**
