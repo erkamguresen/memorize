@@ -36,31 +36,11 @@ export function showAnswer(event) {
 export function previousFlashCard(event) {
   event.preventDefault();
 
-  //select the visible-card
-  const currentElement = document.querySelector('#visible-card');
+  let currentIndex = parseInt(
+    document.getElementById('flash-card-template').getAttribute('index')
+  );
 
-  //get the index of the  current flash card
-  const currentIndex = currentElement.getAttribute('index');
-
-  // check if there is a previous flash card
-  // note that all html element attributes are strings
-  if (Number(currentIndex) !== 0) {
-    //get previous flash card
-    let previousElement = currentElement.previousSibling;
-
-    // make it visible
-    previousElement.style.display = 'block';
-
-    //add the id "visible-card" to select this card easily in the future
-    previousElement.id = 'visible-card';
-
-    //hide the current flash card
-    currentElement.style.display = 'none';
-    //remove add id of visible-card
-    currentElement.id = '';
-    //hide the display of the answer: return to default 'visibility: hidden'
-    currentElement.lastChild.style.visibility = 'hidden';
-  }
+  updateTheFlashCardElement(--currentIndex);
 }
 
 /**
@@ -71,28 +51,11 @@ export function previousFlashCard(event) {
 export function nextFlashCard(event) {
   event.preventDefault();
 
-  //select the visible-card
-  const currentElement = document.querySelector('#visible-card');
+  let currentIndex = parseInt(
+    document.getElementById('flash-card-template').getAttribute('index')
+  );
 
-  //get the next sibling
-  const nextElement = currentElement.nextSibling;
-
-  // check if there is a next flash card
-  // note that all html element attributes are strings
-  if (nextElement.classList.contains('card')) {
-    // make next element visible
-    nextElement.style.display = 'block';
-
-    //add the id "visible-card" to select this card easily in the future
-    nextElement.id = 'visible-card';
-
-    //hide the current flash card
-    currentElement.style.display = 'none';
-    //remove add id of visible-card
-    currentElement.id = '';
-    //hide the display of the answer: return to default 'visibility: hidden'
-    currentElement.lastChild.style.visibility = 'hidden';
-  }
+  updateTheFlashCardElement(++currentIndex);
 }
 
 export function toggleRandomFlashCard(event) {

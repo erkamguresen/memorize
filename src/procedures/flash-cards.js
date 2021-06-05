@@ -26,16 +26,21 @@ export function loadFlashCards() {
   // add a flash card template
   const card = document.createElement('div');
   card.className = 'card';
+  card.id = 'flash-card-template';
+  card.setAttribute('index', -1);
 
   //question part of the flash card
   const question = document.createElement('question');
+  question.className = 'unselectable';
   question.style.display = 'block';
   card.appendChild(question);
 
   //answer part of the flash card
   const answer = document.createElement('answer');
+  answer.className = 'unselectable';
   answer.style.display = 'block';
   answer.style.visibility = 'hidden';
+
   card.appendChild(answer);
 
   //add  flash card to display panel
@@ -46,8 +51,6 @@ export function loadFlashCards() {
 
   //initialize card with the first card
   updateTheFlashCardElement();
-  // question.innerHTML = currentData.currentFlashCardList[0].question;
-  // answer.textContent = currentData.currentFlashCardList[0].answer;
 
   //add next button
   const nextButton = document.createElement('button');
@@ -63,10 +66,19 @@ export function loadFlashCards() {
 }
 
 export function updateTheFlashCardElement(flashCardArrayIndex = 0) {
-  document.querySelector('question').innerHTML =
-    currentData.currentFlashCardList[0].question;
-  document.querySelector('answer').innerText =
-    currentData.currentFlashCardList[0].answer;
+  if (
+    flashCardArrayIndex >= 0 &&
+    flashCardArrayIndex < currentData.currentFlashCardList.length
+  ) {
+    document.querySelector('answer').style.visibility = 'hidden';
 
-  document.querySelector('answer').style.visibility = 'hidden';
+    document.querySelector('question').innerHTML =
+      currentData.currentFlashCardList[flashCardArrayIndex].question;
+    document.querySelector('answer').innerText =
+      currentData.currentFlashCardList[flashCardArrayIndex].answer;
+
+    document
+      .getElementById('flash-card-template')
+      .setAttribute('index', flashCardArrayIndex);
+  }
 }
