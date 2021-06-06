@@ -1,10 +1,5 @@
 export class FlashCard {
-  constructor(
-    index,
-    memo,
-    questionPreFix = 'What is the answer ?',
-    questionPostFix
-  ) {
+  constructor(index, memo, questionPreFix = '', questionPostFix) {
     this.memo = memo;
     this.index = index;
     this.randomIndex = Math.random();

@@ -102,7 +102,8 @@ function loadQuestionCards(dataSets) {
   // add flash cards
   let index = 0;
   for (let i = 0; i < dataSet.length; i++) {
-    const questionPreFix = "What is the correct answer ?";
+    //TODO: prefix
+    const questionPreFix = "";
     const questionPostFix = `(${dataSet[i][0].value})`;
 
     for (let j = 1; j < dataSet[i].length; j++) {

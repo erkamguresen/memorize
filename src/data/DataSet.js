@@ -17,7 +17,8 @@ export class DataSet {
     let index = 0;
 
     for (let i = 0; i < this.memoSetList.length; i++) {
-      const questionPreFix = 'What is the correct answer ?';
+      //TODO: prefix
+      const questionPreFix = '';
 
       const questionPostFix = ` (${this.memoSetList[i].memoList[0].value})`;
 

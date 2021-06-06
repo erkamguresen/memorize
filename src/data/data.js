@@ -35,3 +35,8 @@ export const currentData = {
   currentFlashCardList: [],
   currentMemorizeQuizCardList: [],
 };
+
+export const question = {
+  questionPreFix: '',
+  questionPostFix: '',
+};
