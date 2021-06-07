@@ -8,6 +8,6 @@ export class FlashCard {
     this.question = `<p>${questionPreFix}</p>
     <p>${memo.header} ${questionPostFix}</p>`;
 
-    this.answer = memo.value;
+    this.answer = `<p>${memo.value}</p>`;
   }
 }
