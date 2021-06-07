@@ -74,7 +74,7 @@ export function updateTheFlashCardElement(flashCardArrayIndex = 0) {
 
     document.querySelector('question').innerHTML =
       currentData.currentFlashCardList[flashCardArrayIndex].question;
-    document.querySelector('answer').innerText =
+    document.querySelector('answer').innerHTML =
       currentData.currentFlashCardList[flashCardArrayIndex].answer;
 
     document
