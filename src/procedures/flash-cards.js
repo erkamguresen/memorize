@@ -31,13 +31,13 @@ export function loadFlashCards() {
 
   //question part of the flash card
   const question = document.createElement('question');
-  question.className = 'unselectable';
+  // question.className = 'unselectable';
   question.style.display = 'block';
   card.appendChild(question);
 
   //answer part of the flash card
   const answer = document.createElement('answer');
-  answer.className = 'unselectable';
+  // answer.className = 'unselectable';
   answer.style.display = 'block';
   answer.style.visibility = 'hidden';
 
