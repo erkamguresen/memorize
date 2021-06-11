@@ -1,4 +1,5 @@
 import { currentData } from '../data/data.js';
+import { isMobile } from '../logic/isMobileDevice.js';
 import { randomizeFlashCards } from '../logic/randomize.js';
 import { updateTheFlashCardElement } from '../procedures/flash-cards.js';
 
@@ -20,7 +21,7 @@ export function showAnswer(event) {
 
   const isVisible = answerElement.style.visibility === 'visible';
 
-  if (isVisible) {
+  if (isVisible && isItAMobileDevice()) {
     // const clickEvent = new Event('click');
     document.getElementById('next').dispatchEvent(new Event('click'));
   } else {
