@@ -1,5 +1,5 @@
 import { currentData } from '../data/data.js';
-import { isMobile } from '../logic/isMobileDevice.js';
+import { isItAMobileDevice } from '../logic/isMobileDevice.js';
 import { randomizeFlashCards } from '../logic/randomize.js';
 import { updateTheFlashCardElement } from '../procedures/flash-cards.js';
 
