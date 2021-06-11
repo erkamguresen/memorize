@@ -1,6 +1,7 @@
 import { currentData } from '../data/data.js';
 
 import {
+  addAnswerAndNextListener,
   addAnswerListener,
   addNextListener,
   addPreviousListener,
@@ -63,6 +64,9 @@ export function loadFlashCards() {
 
   addPreviousListener(previousButton);
   addNextListener(nextButton);
+
+  //dblclick for PC
+  addAnswerAndNextListener(card);
 }
 
 export function updateTheFlashCardElement(flashCardArrayIndex = 0) {

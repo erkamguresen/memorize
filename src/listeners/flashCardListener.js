@@ -8,10 +8,9 @@ export function addAnswerListener(card) {
   card.addEventListener('click', showAnswer);
 }
 
-//TODO
-// export function addAnswerListener(card) {
-//   card.addEventListener('dblclick', nextFlashCard);
-// }
+export function addAnswerAndNextListener(card) {
+  card.addEventListener('dblclick', nextFlashCard);
+}
 
 export function addPreviousListener(previousButton) {
   previousButton.addEventListener('click', previousFlashCard, false);
